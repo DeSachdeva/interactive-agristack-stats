@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { ServicePanel } from './components/ServicePanel';
 import { StatsView } from './components/StatsView';
 import { SERVICES } from './data/services';
-import { BarChart3, LayoutDashboard, Heart } from 'lucide-react';
+import { BarChart3, LayoutDashboard, Heart, Sun, Moon } from 'lucide-react';
 import './App.css';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('panel'); // 'panel' | 'stats'
   
+  // Theme state: 'light' or 'dark'
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('agristack_theme') || 'light';
+  });
+
+  // Initialize counts from localStorage or empty object
   const [counts, setCounts] = useState(() => {
     const saved = localStorage.getItem('agristack_clicks');
     if (saved) {
@@ -28,9 +34,19 @@ export default function App() {
 
   const [toasts, setToasts] = useState([]);
 
+  // Sync click counts to localStorage
   useEffect(() => {
     localStorage.setItem('agristack_clicks', JSON.stringify(counts));
   }, [counts]);
+
+  // Sync theme to localStorage and body attribute
+  useEffect(() => {
+    localStorage.setItem('agristack_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   const handleServiceClick = (serviceId) => {
     const service = SERVICES.find(s => s.id === serviceId);
@@ -67,7 +83,7 @@ export default function App() {
   const totalClicks = Object.values(counts).reduce((a, b) => a + b, 0);
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell theme-${theme}`}>
       {/* Background decoration grid */}
       <div className="bg-grid"></div>
 
@@ -107,6 +123,15 @@ export default function App() {
               {totalClicks > 0 && (
                 <span className="total-badge">{totalClicks}</span>
               )}
+            </button>
+
+            {/* Theme Toggle Button */}
+            <button 
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+            >
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </button>
           </div>
         </div>
