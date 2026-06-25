@@ -12,7 +12,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
   const activeServices = SERVICES.filter(s => s.active);
 
   // SVG dimensions
-  const centerSize = 290; // 580px width / 2
+  const centerSize = 400; // 800px width / 2
 
   return (
     <div className="panel-container">
@@ -45,12 +45,12 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
           {/* Circular dial container */}
           <div className="dial-container">
             {/* SVG Connecting Lines - placed behind buttons */}
-            <svg className="connecting-lines-svg" width="580" height="580">
+            <svg className="connecting-lines-svg" width="800" height="800">
               {SERVICES.map((service, index) => {
                 if (!service.active) return null;
 
                 const angleDeg = (index * 45) - 90; // 8 items -> 45 deg step
-                const radius = 220;
+                const radius = 310;
                 const angleRad = (angleDeg * Math.PI) / 180;
                 
                 const x = Math.round(radius * Math.cos(angleRad));
@@ -142,7 +142,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
             {/* Service Buttons placed in circle */}
             {SERVICES.map((service, index) => {
               const angleDeg = (index * 45) - 90; // 8 items -> 45 deg step
-              const radius = 220;
+              const radius = 310;
               const angleRad = (angleDeg * Math.PI) / 180;
               
               const x = Math.round(radius * Math.cos(angleRad));
@@ -167,7 +167,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
                     }}
                   >
                     <div className="icon-box">
-                      <ServiceIcon name={service.icon} size={28} color={service.active ? service.color : '#888'} />
+                      <ServiceIcon name={service.icon} size={34} color={service.active ? service.color : '#888'} />
                     </div>
                   </button>
                   <div className="dial-label-container">
