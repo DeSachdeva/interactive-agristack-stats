@@ -80,7 +80,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
             </svg>
 
             {/* Central Farmer & Info */}
-            <div className="central-hub">
+            <div className={`central-hub ${hoveredService ? 'hub-hovered' : ''}`}>
               <div className="hub-inner">
                 <div className="farmer-avatar">
                   <ServiceIcon name="User" size={48} color="#27ae60" />

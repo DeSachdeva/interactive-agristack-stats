@@ -17,27 +17,25 @@
   --danger-hover: #c0392b;
   --danger-glow: rgba(231, 76, 60, 0.15);
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  --overlay-blend: normal;
 }
 
-/* Dark Theme Variables */
+/* EDITS: Dark Theme restored to the original high-end glowing green/navy dashboard theme */
 .theme-dark {
   --primary: #2ecc71;
   --primary-dark: #27ae60;
-  --primary-glow: rgba(46, 204, 113, 0.3);
-  --bg-app: rgba(13, 17, 23, 0.88); /* Dark glass overlay over background image */
-  --bg-card: rgba(22, 27, 34, 0.82);
-  --bg-card-hover: rgba(33, 38, 45, 0.95);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --primary-glow: rgba(46, 204, 113, 0.4);
+  --bg-app: rgba(13, 15, 18, 0.92); /* Overlay to keep bg image dark and readable */
+  --bg-card: rgba(26, 32, 44, 0.65);
+  --bg-card-hover: rgba(35, 43, 59, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
   --border-active: rgba(46, 204, 113, 0.4);
-  --text-primary: #f0f6fc;
-  --text-secondary: #8b949e;
-  --text-muted: #484f58;
+  --text-primary: #f7fafc;
+  --text-secondary: #a0aec0;
+  --text-muted: #718096;
   --danger: #e74c3c;
   --danger-hover: #c0392b;
   --danger-glow: rgba(231, 76, 60, 0.3);
-  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --overlay-blend: multiply;
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 :root {
@@ -61,6 +59,10 @@
   overflow-x: hidden;
   box-sizing: border-box;
   transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+.theme-dark.app-shell {
+  background-color: #0d0f12; /* Keep original dark body color fallback */
 }
 
 .bg-grid {
@@ -92,7 +94,7 @@
 }
 
 .theme-dark .navbar {
-  background: rgba(22, 27, 34, 0.85);
+  background: rgba(13, 15, 18, 0.85);
 }
 
 .nav-container {
@@ -109,7 +111,7 @@
   align-items: center;
 }
 
-/* EDITS: Set Logo Group to have a constant high-contrast light background so that logos with dark/light text are always perfectly visible */
+/* Logo Group Style */
 .logo-group {
   display: flex;
   align-items: center;
@@ -121,19 +123,20 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
+/* EDITS: Increased size of main and sub logos for high visibility */
 .logo-main {
-  height: 38px;
+  height: 52px; /* Increased from 38px */
   object-fit: contain;
 }
 
 .logo-divider {
   width: 1px;
-  height: 28px;
+  height: 38px; /* Increased to match logo height */
   background-color: rgba(0, 0, 0, 0.15);
 }
 
 .logo-sub {
-  height: 32px;
+  height: 44px; /* Increased from 32px */
   object-fit: contain;
 }
 
@@ -225,27 +228,39 @@
   margin: 0 auto;
 }
 
+/* EDITS: Ensure title heading is fully centered on the page */
 .title-section {
   margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .main-heading {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.35;
   margin: 0;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.6);
 }
 
 .theme-dark .main-heading {
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .highlight-text {
   color: var(--primary);
   background: linear-gradient(135deg, #27ae60 0%, #16a085 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-dark .highlight-text {
+  background: linear-gradient(135deg, #2ecc71 0%, #1abc9c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -407,9 +422,9 @@
 }
 
 .connecting-line.line-hovered {
-  stroke-width: 4.5px;
+  stroke-width: 5px;
   stroke-dasharray: 0; /* Becomes solid */
-  filter: drop-shadow(0 0 8px var(--service-color));
+  filter: drop-shadow(0 0 10px var(--service-color));
 }
 
 /* Outer Orbit Rings */
@@ -421,14 +436,13 @@
   z-index: 1;
 }
 
-/* EDITS: connecting all circles together in a ring with a prominent dotted line.
-   Since the circles are placed at radius 220px, ring-1 (diameter 440px) passes exactly through the centers of all nodes. We stop the rotation and make the line more prominent. */
+/* Connected circles in a ring with a prominent dotted line */
 .ring-1 {
   width: 440px;
   height: 440px;
-  border: 2.5px dashed rgba(39, 174, 96, 0.35); /* Increased thickness and opacity */
+  border: 2.5px dashed rgba(39, 174, 96, 0.35); 
   border-radius: 50%;
-  animation: none; /* Keep stable so nodes sit perfectly on the dashed line */
+  animation: none; 
 }
 
 .theme-dark .ring-1 {
@@ -472,12 +486,23 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 8px 32px rgba(39, 174, 96, 0.15), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .theme-dark .central-hub {
   background: radial-gradient(circle, #1f2937 0%, #111827 100%);
   border-color: rgba(46, 204, 113, 0.4);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* EDITS: Scale the farmer central hub when hovering over a service circle */
+.central-hub.hub-hovered {
+  transform: scale(1.22);
+  box-shadow: 0 12px 45px rgba(39, 174, 96, 0.3);
+}
+
+.theme-dark .central-hub.hub-hovered {
+  box-shadow: 0 12px 45px rgba(46, 204, 113, 0.3);
 }
 
 .hub-inner {
@@ -564,11 +589,11 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* EDITS: Scale circle size even more on hover: 1.55x (circle is significantly enlarged) */
+/* EDITS: Scale circle size even more on hover: 1.8x */
 .dial-item.active:hover {
-  transform: scale(1.55); 
+  transform: scale(1.8); 
   background: #ffffff;
-  box-shadow: 0 0 30px var(--theme-color), 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 35px var(--theme-color), 0 12px 30px rgba(0, 0, 0, 0.15);
   z-index: 100;
 }
 
@@ -633,7 +658,7 @@
 .dial-label-container {
   margin-top: 8px;
   text-align: center;
-  width: 140px; /* Increased to prevent word wrapping at large font sizes */
+  width: 150px; /* Increased to prevent word wrapping at large hover sizes */
   pointer-events: none;
   transition: var(--transition);
 }
@@ -648,13 +673,13 @@
   transition: var(--transition);
 }
 
-/* EDITS: Scale the font size even more while hovering: 15px (large, highly readable labels) */
+/* EDITS: Scale the font size even more while hovering: 18px (large, highly readable labels) and offset down to prevent overlapping */
 .dial-item.hovered + .dial-label-container .dial-label,
 .dial-item.active:hover + .dial-label-container .dial-label {
   color: var(--text-primary);
-  font-size: 15px; /* Increased font size */
+  font-size: 18px; /* Increased font size */
   font-weight: 800; /* Extra bold label */
-  transform: translateY(4px);
+  transform: translateY(12px); /* Shifted down to clear the 1.8x circle */
   text-shadow: 0 2px 8px rgba(255, 255, 255, 1);
 }
 
@@ -673,7 +698,7 @@
   border: 1px solid var(--border-color);
   border-radius: 20px;
   padding: 20px 24px;
-  margin-top: 10px;
+  margin-top: 25px; /* Offset a bit more to clear hovered circles */
   min-height: 110px;
   box-shadow: var(--card-shadow), inset 0 2px 4px rgba(255, 255, 255, 0.1);
   display: flex;

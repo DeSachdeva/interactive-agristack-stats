@@ -21,10 +21,10 @@ export const SERVICES = [
     id: "financial_support",
     title: "Financial Support",
     icon: "HandCoins",
-    active: false,
+    active: true,
     angle: 60,
-    color: "#95a5a6",
-    description: "Financial assistance and subsidies (Unavailable)."
+    color: "#e67e22", // Orange
+    description: "Financial assistance, credit options, and government subsidies."
   },
   {
     id: "msp_procurement",
@@ -39,10 +39,10 @@ export const SERVICES = [
     id: "crop_survey_insights",
     title: "Crop Survey & Insights",
     icon: "Eye",
-    active: false,
+    active: true,
     angle: 120,
-    color: "#95a5a6",
-    description: "Drones and satellite imagery analysis (Unavailable)."
+    color: "#9b59b6", // Purple
+    description: "Drones and satellite imagery analysis for crop health forecasting."
   },
   {
     id: "market_price_information",
@@ -93,10 +93,10 @@ export const SERVICES = [
     id: "loan_access",
     title: "Loan Access",
     icon: "Landmark",
-    active: false,
+    active: true,
     angle: 300,
-    color: "#95a5a6",
-    description: "Hassle-free agriculture loans and credit (Unavailable)."
+    color: "#2ecc71", // Green
+    description: "Hassle-free agriculture loans and credit."
   },
   {
     id: "credit_access",
