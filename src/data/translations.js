@@ -62,7 +62,7 @@ export const TRANSLATIONS = {
     farm_advisory_impact: "📡 Krishi Decision Support System (KDSS) live in 9 states: UP, CG, PB, GJ, AS, KL, JH, UK & BH. Reached 1.60 lakh Urad Dal farmers in UP via targeted SMS.",
     disaster_relief_support_impact: "💸 MH Panchnama disbursed ₹14,000 crore to 89 lakh crop loss affected farmers. MahaDBT system registered 47 lakh farmers and disbursed ₹5,845 crore using Farmer ID.",
     soil_health_card_impact: "🧪 Soil Health Card live in 10 states (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) with 29,224 farmers registered and 15,152 soil samples collected.",
-    credit_access_impact: "💳 1,341 loans issued by Public Sector Banks in MH via JanSamarth using Farmer ID. Krishika App went live in MP leveraging Land Verification and SoF.",
+    credit_access_impact: "💳 KCC Loans through JanSamarth: 4,407 KCC applications processed using AgriStack across Maharashtra (2,730), MP (1,576), UP (96), and Gujarat (5). MoUs executed with 10 states and 9 banks.",
     nextFarmer: "Next Farmer ➔"
   },
   hi: {
@@ -128,7 +128,7 @@ export const TRANSLATIONS = {
     farm_advisory_impact: "📡 कृषि निर्णय सहायता प्रणाली (KDSS) 9 राज्यों (UP, CG, PB, GJ, AS, KL, JH, UK, BH) में लाइव। साथ ही यूपी में 1.60 लाख उड़द दाल किसानों तक लक्षित एसएमएस से पहुंच बनाई गई।",
     disaster_relief_support_impact: "💸 महाराष्ट्र पंचनामा द्वारा 89 लाख प्रभावित किसानों को ₹14,000 करोड़ वितरित। महाडीबीटी में 47 लाख किसान पंजीकृत, ₹5,845 करोड़ वितरित किए गए।",
     soil_health_card_impact: "🧪 10 राज्यों (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) में लाइव। किसान आईडी से 29,224 किसान पंजीकृत और 15,152 मिट्टी के नमूने एकत्र किए गए।",
-    credit_access_impact: "💳 जनसमर्थ के माध्यम से महाराष्ट्र में बैंकों द्वारा 1,341 ऋण जारी। भूमि सत्यापन और SoF का लाभ उठाते हुए मध्य प्रदेश में कृषिका ऐप लाइव हुआ।",
+    credit_access_impact: "💳 जनसमर्थ के माध्यम से KCC ऋण: महाराष्ट्र (2,730), MP (1,576), UP (96) और गुजरात (5) में AgriStack का उपयोग करके 4,407 KCC आवेदन संसाधित किए गए। डिजिटल क्रेडिट वितरण के लिए 10 राज्यों और 9 बैंकों के साथ MoU हस्ताक्षरित हैं।",
     nextFarmer: "अगला किसान ➔"
   }
 };
