@@ -6,10 +6,8 @@ import { Trash2, AlertTriangle, X, Check } from 'lucide-react';
 export const StatsView = ({ counts, onReset, totalClicks }) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
-  // Filter only active services for statistics
   const activeServices = SERVICES.filter(s => s.active);
 
-  // Sort services by count descending to show popularity
   const sortedServices = [...activeServices].sort((a, b) => {
     return (counts[b.id] || 0) - (counts[a.id] || 0);
   });

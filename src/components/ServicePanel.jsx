@@ -10,6 +10,9 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
   const activeServices = SERVICES.filter(s => s.active);
   const inactiveServices = SERVICES.filter(s => !s.active);
 
+  // SVG dimensions
+  const centerSize = 290; // 580px width / 2
+
   return (
     <div className="panel-container">
       <div className="panel-header">
@@ -40,11 +43,47 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
         <div className="circular-wrapper">
           {/* Circular dial container */}
           <div className="dial-container">
+            {/* SVG Connecting Lines - placed behind buttons */}
+            <svg className="connecting-lines-svg" width="580" height="580">
+              {SERVICES.map((service, index) => {
+                if (!service.active) return null;
+
+                const angleDeg = (index * 30) - 90;
+                const radius = 220;
+                const angleRad = (angleDeg * Math.PI) / 180;
+                
+                const x = Math.round(radius * Math.cos(angleRad));
+                const y = Math.round(radius * Math.sin(angleRad));
+
+                const startX = centerSize;
+                const startY = centerSize;
+                const endX = centerSize + x;
+                const endY = centerSize + y;
+
+                const isHovered = hoveredService === service.id;
+
+                return (
+                  <line
+                    key={service.id}
+                    x1={startX}
+                    y1={startY}
+                    x2={endX}
+                    y2={endY}
+                    className={`connecting-line ${isHovered ? 'line-hovered' : ''}`}
+                    style={{ 
+                      stroke: isHovered ? service.color : 'rgba(39, 174, 96, 0.25)',
+                      '--service-color': service.color 
+                    }}
+                  />
+                );
+              })}
+            </svg>
+
             {/* Central Farmer & Info */}
             <div className="central-hub">
               <div className="hub-inner">
                 <div className="farmer-avatar">
-                  <ServiceIcon name="User" size={48} color="#2ecc71" />
+                  <ServiceIcon name="User" size={48} color="#27ae60" />
                 </div>
                 <div className="farmer-text">
                   <span className="farmer-title">FARMER</span>
@@ -56,11 +95,10 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
 
             {/* Service Buttons placed in circle */}
             {SERVICES.map((service, index) => {
-              const angleDeg = (index * 30) - 90; // 12 items -> 30 deg each, starting at 12 o'clock (-90deg)
-              const radius = 220; // Radius in pixels
+              const angleDeg = (index * 30) - 90;
+              const radius = 220;
               const angleRad = (angleDeg * Math.PI) / 180;
               
-              // Position math
               const x = Math.round(radius * Math.cos(angleRad));
               const y = Math.round(radius * Math.sin(angleRad));
 
@@ -79,7 +117,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
                     onMouseLeave={() => setHoveredService(null)}
                     style={{
                       '--theme-color': service.color,
-                      borderColor: service.active ? 'var(--theme-color)' : '#444'
+                      borderColor: service.active ? 'var(--theme-color)' : '#bbb'
                     }}
                   >
                     <div className="icon-box">
@@ -125,7 +163,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
               })()
             ) : (
               <div className="detail-content placeholder animate-fade-in">
-                <Sparkles size={20} color="#2ecc71" className="sparkle-icon" />
+                <Sparkles size={20} color="#27ae60" className="sparkle-icon" />
                 <p>Hover over any service button to learn more or click to register interest.</p>
               </div>
             )}

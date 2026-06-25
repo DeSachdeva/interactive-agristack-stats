@@ -8,7 +8,6 @@ import './App.css';
 export default function App() {
   const [activeTab, setActiveTab] = useState('panel'); // 'panel' | 'stats'
   
-  // Initialize counts from localStorage or empty object
   const [counts, setCounts] = useState(() => {
     const saved = localStorage.getItem('agristack_clicks');
     if (saved) {
@@ -18,7 +17,6 @@ export default function App() {
         console.error("Error loading saved clicks", e);
       }
     }
-    // Default to 0 for all active services
     const initial = {};
     SERVICES.forEach(s => {
       if (s.active) {
@@ -30,7 +28,6 @@ export default function App() {
 
   const [toasts, setToasts] = useState([]);
 
-  // Sync to localStorage
   useEffect(() => {
     localStorage.setItem('agristack_clicks', JSON.stringify(counts));
   }, [counts]);
@@ -44,7 +41,6 @@ export default function App() {
       [serviceId]: (prev[serviceId] || 0) + 1
     }));
 
-    // Trigger feedback Toast
     const id = Date.now();
     const newToast = {
       id,
@@ -53,7 +49,6 @@ export default function App() {
     };
     setToasts(prev => [...prev, newToast]);
 
-    // Auto-remove toast
     setTimeout(() => {
       setToasts(prev => prev.filter(t => t.id !== id));
     }, 2500);
