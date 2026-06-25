@@ -3,7 +3,7 @@ import { ServicePanel } from './components/ServicePanel';
 import { StatsView } from './components/StatsView';
 import { SERVICES } from './data/services';
 import { TRANSLATIONS } from './data/translations';
-import { BarChart3, LayoutDashboard, Heart, Sun, Moon, Languages } from 'lucide-react';
+import { BarChart3, LayoutDashboard, Heart, Sun, Moon, Languages, X } from 'lucide-react';
 import './App.css';
 
 const CONFETTI_COLORS = ['#2ecc71', '#e74c3c', '#f1c40f', '#3498db', '#9b59b6', '#e67e22', '#1abc9c'];
