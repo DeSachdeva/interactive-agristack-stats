@@ -54,12 +54,15 @@ export const TRANSLATIONS = {
     selectExportFormat: "Select Export Format",
     exportSuccess: "Data exported successfully!",
 
-    // Celebrative messages
-    msg1: "🎉 Splendid Choice! Thousands of Indian farmers in your area are driving yield growth using this service.",
-    msg2: "🌾 Outstanding decision! Accessing this empowers your household and ensures resource efficiency.",
-    msg3: "✨ Excellent choice! Many modern farmers have transformed their cultivation with this exact input.",
-    msg4: "🌟 Brilliant choice! This is an essential step towards securing sustainable and profitable farming.",
-    msg5: "🚀 Great Choice! This is one of the fastest-growing services chosen by Indian farmers today.",
+    // Impact facts
+    fertiliser_access_impact: "🌱 10.05 lakh Farmer ID-based registrations completed, with successful validation of fertilizer sales transactions across MP.",
+    crop_insurance_impact: "☔ 2.9 crore Farmer IDs seeded in NCIP Portal and 76.3 lakh farmer registrations done in Maharashtra using Farmer ID (FID).",
+    msp_procurement_impact: "🌾 27.53 lakh Farmer IDs seeded in Chhattisgarh. In UP, 2.30 lakh farmers registered for wheat. MP connected 1.21 lakh Urad Dal & 27.09 lakh Soybean farmers under MSP.",
+    market_price_information_impact: "📈 Crop Registry integrated in Tamil Nadu's UZHAVAN and State DCS apps. In TN's Kuruvai scheme, 5.59 lakh farmers registered using Farmer ID.",
+    farm_advisory_impact: "📡 Krishi Decision Support System (KDSS) live in 9 states: UP, CG, PB, GJ, AS, KL, JH, UK & BH. Reached 1.60 lakh Urad Dal farmers in UP via targeted SMS.",
+    disaster_relief_support_impact: "💸 MH Panchnama disbursed ₹14,000 crore to 89 lakh crop loss affected farmers. MahaDBT system registered 47 lakh farmers and disbursed ₹5,845 crore using Farmer ID.",
+    soil_health_card_impact: "🧪 Soil Health Card live in 10 states (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) with 29,224 farmers registered and 15,152 soil samples collected.",
+    credit_access_impact: "💳 1,341 loans issued by Public Sector Banks in MH via JanSamarth using Farmer ID. Krishika App went live in MP leveraging Land Verification and SoF.",
     nextFarmer: "Next Farmer ➔"
   },
   hi: {
@@ -117,12 +120,15 @@ export const TRANSLATIONS = {
     selectExportFormat: "निर्यात प्रारूप चुनें",
     exportSuccess: "डेटा सफलतापूर्वक निर्यात किया गया!",
 
-    // Celebrative messages
-    msg1: "🎉 शानदार विकल्प! आपके क्षेत्र के हजारों भारतीय किसान इस सेवा का उपयोग करके पैदावार बढ़ा रहे हैं।",
-    msg2: "🌾 उत्कृष्ट निर्णय! यह सेवा आपके परिवार को सशक्त बनाती है और संसाधनों का सही उपयोग सुनिश्चित करती है।",
-    msg3: "✨ बढ़िया पसंद! कई आधुनिक किसानों ने इस इनपुट की सहायता से अपनी खेती में बड़ा बदलाव किया है।",
-    msg4: "🌟 बेहतरीन निर्णय! यह टिकाऊ और लाभदायक खेती को सुरक्षित करने की दिशा में एक महत्वपूर्ण कदम है।",
-    msg5: "🚀 गजब का विकल्प! यह आज भारतीय किसानों द्वारा सबसे अधिक पसंद की जाने वाली सेवाओं में से एक है।",
+    // Impact facts
+    fertiliser_access_impact: "🌱 10.05 लाख किसान आईडी-आधारित पंजीकरण पूरे हुए, मध्य प्रदेश में उर्वरक बिक्री लेनदेन के सफल सत्यापन के साथ।",
+    crop_insurance_impact: "☔ NCIP पोर्टल में 2.9 करोड़ किसान आईडी सीड की गईं और महाराष्ट्र में FID का उपयोग करके 76.3 लाख किसान पंजीकरण किए गए।",
+    msp_procurement_impact: "🌾 छत्तीसगढ़ खरीद प्रणाली में 27.53 लाख किसान आईडी सीड की गईं। यूपी में गेहूं के लिए 2.30 लाख किसान पंजीकृत। एमपी में 1.21 लाख उड़द दाल और 27.09 लाख सोयाबीन किसान एमएसपी से जुड़े।",
+    market_price_information_impact: "📈 तमिलनाडु ने उझावन और राज्य DCS ऐप में फसल रजिस्ट्री को एकीकृत किया। तमिलनाडु की कुरुवई योजना में 5.59 लाख किसानों ने किसान आईडी से पंजीकरण कराया।",
+    farm_advisory_impact: "📡 कृषि निर्णय सहायता प्रणाली (KDSS) 9 राज्यों (UP, CG, PB, GJ, AS, KL, JH, UK, BH) में लाइव। साथ ही यूपी में 1.60 लाख उड़द दाल किसानों तक लक्षित एसएमएस से पहुंच बनाई गई।",
+    disaster_relief_support_impact: "💸 महाराष्ट्र पंचनामा द्वारा 89 लाख प्रभावित किसानों को ₹14,000 करोड़ वितरित। महाडीबीटी में 47 लाख किसान पंजीकृत, ₹5,845 करोड़ वितरित किए गए।",
+    soil_health_card_impact: "🧪 10 राज्यों (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) में लाइव। किसान आईडी से 29,224 किसान पंजीकृत और 15,152 मिट्टी के नमूने एकत्र किए गए।",
+    credit_access_impact: "💳 जनसमर्थ के माध्यम से महाराष्ट्र में बैंकों द्वारा 1,341 ऋण जारी। भूमि सत्यापन और SoF का लाभ उठाते हुए मध्य प्रदेश में कृषिका ऐप लाइव हुआ।",
     nextFarmer: "अगला किसान ➔"
   }
 };

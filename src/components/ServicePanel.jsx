@@ -186,13 +186,13 @@ export const ServicePanel = ({
                   </div>
 
                   {/* Speech bubble next to circle */}
-                  {isSelected && activeMessages[service.id] !== undefined && (
+                  {isSelected && (
                     <div 
                       className={`node-message-bubble ${x >= 0 ? 'pos-right' : 'pos-left'}`}
                       style={{ '--service-color': service.color }}
                     >
                       <div className="bubble-arrow" />
-                      <span>{TRANSLATIONS[lang]['msg' + (activeMessages[service.id] + 1)]}</span>
+                      <span>{TRANSLATIONS[lang][service.id + '_impact']}</span>
                     </div>
                   )}
 
