@@ -28,7 +28,7 @@ export const SERVICES = [
   },
   {
     id: "market_price_information",
-    title: "Market Price Information",
+    title: "Mandi Price Information",
     icon: "Coins",
     active: true,
     angle: 108,
