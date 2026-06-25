@@ -1320,34 +1320,34 @@
 /* Confetti Ribbon Particles Overlay */
 .confetti-particle {
   position: fixed;
-  bottom: -20px;
+  top: -30px;
   left: var(--left);
   background-color: var(--color);
   z-index: 9999;
   pointer-events: none;
   opacity: 0;
-  animation: confettiFly var(--speed) ease-out var(--delay) forwards;
+  animation: confettiFall var(--speed) linear var(--delay) forwards;
 }
 
 .confetti-particle.shape-circle {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 }
 
 .confetti-particle.shape-rect {
-  width: 12px;
-  height: 6px;
+  width: 18px;
+  height: 8px;
   transform: rotate(var(--angle));
 }
 
-@keyframes confettiFly {
+@keyframes confettiFall {
   0% {
     transform: translateY(0) rotate(0deg) scale(1.5);
     opacity: 1;
   }
   100% {
-    transform: translateY(-90vh) translateX(calc(var(--angle) * 3)) rotate(720deg) scale(0.5);
+    transform: translateY(105vh) translateX(var(--drift)) rotate(720deg) scale(0.6);
     opacity: 0;
   }
 }

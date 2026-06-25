@@ -88,13 +88,13 @@ export default function App() {
 
     // Trigger confetti particles
     const id = Date.now();
-    const newParticles = Array.from({ length: 45 }).map((_, i) => ({
+    const newParticles = Array.from({ length: 80 }).map((_, i) => ({
       id: `${id}-${i}`,
       left: Math.random() * 100, // random X position across screen width
       color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
-      angle: (Math.random() * 80) - 40, // tilt angle -40 to 40 deg
-      delay: Math.random() * 0.5, // delayed explosion flow
-      speed: 1.2 + Math.random() * 1.8, // flight speed
+      angle: (Math.random() * 100) - 50, // tilt angle -50 to 50 deg
+      delay: Math.random() * 0.8, // delayed explosion flow
+      speed: 2.5 + Math.random() * 2.5, // flight speed (slower drift)
       shape: Math.random() > 0.5 ? 'rect' : 'circle'
     }));
 
@@ -103,7 +103,7 @@ export default function App() {
     // Clean up particles
     setTimeout(() => {
       setConfettiParticles(prev => prev.filter(p => !p.id.startsWith(id)));
-    }, 3500);
+    }, 6000);
   };
 
   const handleNextFarmer = () => {
@@ -236,6 +236,7 @@ export default function App() {
             '--color': p.color,
             '--left': `${p.left}%`,
             '--angle': `${p.angle}deg`,
+            '--drift': `${p.angle * 2.5}px`,
             '--delay': `${p.delay}s`,
             '--speed': `${p.speed}s`
           }}
