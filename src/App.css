@@ -1553,3 +1553,46 @@
 .next-farmer-btn:active {
   transform: translateY(-1px);
 }
+
+/* Local Party Popper Confetti Burst */
+.local-confetti-burst {
+  position: absolute;
+  top: 40px; /* Center of the 80px dial-item button */
+  left: 60px; /* Center of the 120px dial-item-wrapper */
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.burst-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: localBurst 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  animation-delay: var(--delay);
+}
+
+/* Alternate particle shapes (ribbons vs circles) */
+.burst-particle:nth-child(even) {
+  width: 4px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+@keyframes localBurst {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(var(--distance)) scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}

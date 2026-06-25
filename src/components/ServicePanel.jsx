@@ -4,6 +4,8 @@ import { ServiceIcon } from './ServiceIcon';
 import { TRANSLATIONS } from '../data/translations';
 import { Sparkles, Grid, RotateCcw } from 'lucide-react';
 
+const CONFETTI_COLORS = ['#2ecc71', '#e74c3c', '#f1c40f', '#3498db', '#9b59b6', '#e67e22', '#1abc9c'];
+
 export const ServicePanel = ({ 
   counts, 
   onServiceClick, 
@@ -191,6 +193,24 @@ export const ServicePanel = ({
                     >
                       <div className="bubble-arrow" />
                       <span>{TRANSLATIONS[lang]['msg' + (activeMessages[service.id] + 1)]}</span>
+                    </div>
+                  )}
+
+                  {/* Local Confetti Burst */}
+                  {isSelected && (
+                    <div className="local-confetti-burst">
+                      {Array.from({ length: 16 }).map((_, i) => (
+                        <div 
+                          key={i} 
+                          className="burst-particle" 
+                          style={{
+                            '--angle': `${i * 22.5}deg`,
+                            '--delay': `${Math.random() * 0.12}s`,
+                            '--color': CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+                            '--distance': `${50 + Math.random() * 70}px`
+                          }}
+                        />
+                      ))}
                     </div>
                   )}
                 </div>
