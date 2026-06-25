@@ -12,7 +12,9 @@ import {
   CloudSun, 
   Landmark, 
   CreditCard,
-  User
+  User,
+  Flower,
+  Scale
 } from 'lucide-react';
 
 const iconMap = {
@@ -28,7 +30,9 @@ const iconMap = {
   CloudSun,
   Landmark,
   CreditCard,
-  User
+  User,
+  Flower,
+  Scale
 };
 
 export const ServiceIcon = ({ name, className, size = 24, color }) => {

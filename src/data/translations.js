@@ -20,6 +20,8 @@ export const TRANSLATIONS = {
     disaster_relief_support: "Disaster Relief Support",
     soil_health_card: "Soil Health Card",
     credit_access: "Access to Credit",
+    seeds_distribution: "Seeds Distribution",
+    income_support: "Income Support",
 
     // Service Descriptions
     fertiliser_access_desc: "Get access to top-quality fertilisers and nutrients for your crops.",
@@ -30,6 +32,8 @@ export const TRANSLATIONS = {
     disaster_relief_support_desc: "Emergency support and compensation tracking.",
     soil_health_card_desc: "Check nutrient content and soil quality reports.",
     credit_access_desc: "Easy credit line activation for purchase of inputs.",
+    seeds_distribution_desc: "Access certified high-yield seeds and tracking via Seed Registry SATHI.",
+    income_support_desc: "Direct benefit transfer and income support tracking (PM-Kisan).",
 
     // Interactive helper
     hoverPrompt: "Hover over any service button to learn more or click to register interest.",
@@ -63,6 +67,8 @@ export const TRANSLATIONS = {
     disaster_relief_support_impact: "💸 MH Panchnama disbursed ₹14,000 crore to 89 lakh crop loss affected farmers. MahaDBT system registered 47 lakh farmers and disbursed ₹5,845 crore using Farmer ID.",
     soil_health_card_impact: "🧪 Soil Health Card live in 10 states (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) with 29,224 farmers registered and 15,152 soil samples collected.",
     credit_access_impact: "💳 KCC Loans through JanSamarth: 4,407 KCC applications processed using AgriStack across Maharashtra (2,730), MP (1,576), UP (96), and Gujarat (5). MoUs executed with 10 states and 9 banks.",
+    seeds_distribution_impact: "🌱 Seed Registry SATHI: Phase-I enables tracking of Farmer’s Varieties and automated seed distribution, planning go-live by July 2026.",
+    income_support_impact: "💰 PM-Kisan Income Support: 5.97 crore Farmer IDs seeded and 4.35 lakh new farmers registered using Farmer ID.",
     nextFarmer: "Next Farmer ➔"
   },
   hi: {
@@ -86,6 +92,8 @@ export const TRANSLATIONS = {
     disaster_relief_support: "आपदा राहत सहायता",
     soil_health_card: "मृदा स्वास्थ्य कार्ड",
     credit_access: "ऋण तक पहुंच",
+    seeds_distribution: "बीज वितरण",
+    income_support: "आय सहायता",
 
     // Service Descriptions
     fertiliser_access_desc: "अपनी फसलों के लिए उच्च गुणवत्ता वाले उर्वरकों और पोषक तत्वों तक पहुंच प्राप्त करें।",
@@ -96,6 +104,8 @@ export const TRANSLATIONS = {
     disaster_relief_support_desc: "आपातकालीन वित्तीय सहायता और मुआवजा ट्रैकिंग प्रणाली।",
     soil_health_card_desc: "मिट्टी के पोषक तत्वों की जांच और मृदा स्वास्थ्य रिपोर्ट कार्ड।",
     credit_access_desc: "कृषि आदानों और मशीनरी की खरीद के लिए आसान क्रेडिट सीमा सक्रियण।",
+    seeds_distribution_desc: "प्रमाणित उच्च उपज वाले बीजों तक पहुंच और बीज रजिस्ट्री साथी (SATHI) के माध्यम से ट्रैकिंग।",
+    income_support_desc: "प्रत्यक्ष लाभ हस्तांतरण और आय सहायता ट्रैकिंग (PM-Kisan)।",
 
     // Interactive helper
     hoverPrompt: "अधिक जानने के लिए किसी भी सेवा बटन पर माउस ले जाएं या रुचि दर्ज करने के लिए क्लिक करें।",
@@ -129,6 +139,8 @@ export const TRANSLATIONS = {
     disaster_relief_support_impact: "💸 महाराष्ट्र पंचनामा द्वारा 89 लाख प्रभावित किसानों को ₹14,000 करोड़ वितरित। महाडीबीटी में 47 लाख किसान पंजीकृत, ₹5,845 करोड़ वितरित किए गए।",
     soil_health_card_impact: "🧪 10 राज्यों (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) में लाइव। किसान आईडी से 29,224 किसान पंजीकृत और 15,152 मिट्टी के नमूने एकत्र किए गए।",
     credit_access_impact: "💳 जनसमर्थ के माध्यम से KCC ऋण: महाराष्ट्र (2,730), MP (1,576), UP (96) और गुजरात (5) में AgriStack का उपयोग करके 4,407 KCC आवेदन संसाधित किए गए। डिजिटल क्रेडिट वितरण के लिए 10 राज्यों और 9 बैंकों के साथ MoU हस्ताक्षरित हैं।",
+    seeds_distribution_impact: "🌱 बीज रजिस्ट्री SATHI: चरण-I किसान की किस्मों की ट्रैकिंग और स्वचालित बीज वितरण को सक्षम बनाता है, जुलाई 2026 तक गो-लाइव की योजना है।",
+    income_support_impact: "💰 PM-Kisan आय सहायता: 5.97 करोड़ किसान आईडी सीड की गईं और किसान आईडी का उपयोग करके 4.35 लाख नए किसान पंजीकृत किए गए।",
     nextFarmer: "अगला किसान ➔"
   }
 };

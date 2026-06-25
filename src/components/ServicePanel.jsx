@@ -59,7 +59,7 @@ export const ServicePanel = ({
               {SERVICES.map((service, index) => {
                 if (!service.active) return null;
 
-                const angleDeg = (index * 45) - 90; // 8 items -> 45 deg step
+                const angleDeg = (index * (360 / activeServices.length)) - 90; // dynamic degree step
                 const radius = 310;
                 const angleRad = (angleDeg * Math.PI) / 180;
                 
@@ -151,7 +151,7 @@ export const ServicePanel = ({
 
             {/* Service Buttons placed in circle */}
             {SERVICES.map((service, index) => {
-              const angleDeg = (index * 45) - 90; // 8 items -> 45 deg step
+              const angleDeg = (index * (360 / activeServices.length)) - 90; // dynamic degree step
               const radius = 310;
               const angleRad = (angleDeg * Math.PI) / 180;
               
@@ -178,7 +178,25 @@ export const ServicePanel = ({
                     }}
                   >
                     <div className="icon-box">
-                      <ServiceIcon name={service.icon} size={34} color={service.active ? service.color : '#888'} />
+                      <img 
+                        src={`/images/schemes/${service.id}.png`}
+                        alt={service.title}
+                        className="scheme-logo-img"
+                        style={{ display: 'none' }}
+                        onLoad={(e) => {
+                          e.target.style.display = 'block';
+                          const fallback = e.target.nextSibling;
+                          if (fallback) fallback.style.display = 'none';
+                        }}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          const fallback = e.target.nextSibling;
+                          if (fallback) fallback.style.display = 'block';
+                        }}
+                      />
+                      <div className="fallback-vector-icon" style={{ display: 'block' }}>
+                        <ServiceIcon name={service.icon} size={34} color={service.active ? service.color : '#888'} />
+                      </div>
                     </div>
                   </button>
                   <div className="dial-label-container">

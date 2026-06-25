@@ -13,7 +13,7 @@ export const SERVICES = [
     title: "Crop Insurance",
     icon: "Umbrella",
     active: true,
-    angle: 45,
+    angle: 36,
     color: "#3498db", // Blue
     description: "Protect your fields from unforeseen weather conditions and disasters."
   },
@@ -22,7 +22,7 @@ export const SERVICES = [
     title: "MSP Procurement",
     icon: "Wheat",
     active: true,
-    angle: 90,
+    angle: 72,
     color: "#f1c40f", // Gold
     description: "Direct minimum support price selling channel for farmers."
   },
@@ -31,7 +31,7 @@ export const SERVICES = [
     title: "Market Price Information",
     icon: "Coins",
     active: true,
-    angle: 135,
+    angle: 108,
     color: "#e67e22", // Orange
     description: "Live daily mandi rates and price forecasting."
   },
@@ -40,7 +40,7 @@ export const SERVICES = [
     title: "Farm Advisory",
     icon: "CloudSun",
     active: true,
-    angle: 180,
+    angle: 144,
     color: "#f39c12", // Amber
     description: "Real-time weather advisory alerts, crop disease forecasting, and pest solutions."
   },
@@ -49,7 +49,7 @@ export const SERVICES = [
     title: "Disaster Relief Support",
     icon: "HeartHandshake",
     active: true,
-    angle: 225,
+    angle: 180,
     color: "#9b59b6", // Purple
     description: "Emergency support and compensation tracking."
   },
@@ -58,7 +58,7 @@ export const SERVICES = [
     title: "Soil Health Card",
     icon: "Activity",
     active: true,
-    angle: 270,
+    angle: 216,
     color: "#1abc9c", // Teal
     description: "Check nutrient content and soil quality reports."
   },
@@ -67,8 +67,26 @@ export const SERVICES = [
     title: "Access to Credit",
     icon: "CreditCard",
     active: true,
-    angle: 315,
+    angle: 252,
     color: "#16a085", // Dark Teal
     description: "Easy credit line activation for purchase of inputs."
+  },
+  {
+    id: "seeds_distribution",
+    title: "Seeds Distribution",
+    icon: "Flower",
+    active: true,
+    angle: 288,
+    color: "#d35400", // Dark Orange/Red
+    description: "Access certified high-yield seeds and tracking via Seed Registry SATHI."
+  },
+  {
+    id: "income_support",
+    title: "Income Support",
+    icon: "Landmark",
+    active: true,
+    angle: 324,
+    color: "#2980b9", // Indigo/Blue
+    description: "Direct benefit transfer and income support tracking (PM-Kisan)."
   }
 ];
