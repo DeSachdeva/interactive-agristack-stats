@@ -461,10 +461,18 @@
 
 /* EDITS: Dotted lines speed increased, glows from center to circle */
 .connecting-line {
-  stroke-dasharray: 25, 95; /* Short glowing dash, long gap */
+  stroke-dasharray: 20, 40; /* Multiple pulses in a streaming queue */
   stroke-width: 3.5px;
   stroke-dashoffset: 120;
-  animation: lightPulse 1.2s linear infinite; /* Increased flow speed */
+  animation: lightPulse 1.2s linear infinite;
+}
+
+.farmer-avatar-img {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 @keyframes lightPulse {

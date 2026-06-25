@@ -84,8 +84,19 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
             <div className={`central-hub ${hoveredService ? 'hub-hovered' : ''}`}>
               <div className="hub-inner">
                 <div className="farmer-avatar">
-                  {/* Multiple Indian Farmers SVG Cut-out */}
-                  <svg viewBox="0 0 64 64" width="64" height="64" className="farmer-cutout">
+                  {/* Image cutout loading custom farmers illustration, fallback to custom multi-farmer SVG */}
+                  <img 
+                    src="/images/farmers-group.png" 
+                    alt="Indian Farmers Group" 
+                    className="farmer-avatar-img"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      const fallback = e.target.nextSibling;
+                      if (fallback) fallback.style.display = 'block';
+                    }}
+                  />
+                  {/* Overlapping Multi-Farmer SVG Vector Fallback */}
+                  <svg viewBox="0 0 64 64" width="64" height="64" className="farmer-cutout" style={{ display: 'none' }}>
                     <circle cx="32" cy="32" r="30" fill="rgba(39, 174, 96, 0.05)" stroke="rgba(39, 174, 96, 0.2)" strokeWidth="1"/>
                     
                     {/* Left Farmer (Smaller, Back) */}
@@ -121,7 +132,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
                   </svg>
                 </div>
                 <div className="farmer-text">
-                  <span className="farmer-title">10+ {t.crore}</span>
+                  <span className="farmer-title">10,00,00,000+</span>
                   <span className="farmer-year">{t.indianFarmers}</span>
                 </div>
               </div>
