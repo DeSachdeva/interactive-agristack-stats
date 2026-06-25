@@ -143,7 +143,7 @@ export default function App() {
           <div className="title-section text-center">
             <h1 className="main-heading">
               What services would you avail <br className="br-desktop" />
-              as a farmer using <span className="highlight-text">AgriStack</span>?
+              as a farmer using <span className="highlight-text">Farmer ID</span>?
             </h1>
           </div>
 

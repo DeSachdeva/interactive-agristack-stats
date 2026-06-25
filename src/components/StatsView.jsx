@@ -40,13 +40,13 @@ export const StatsView = ({ counts, onReset, totalClicks }) => {
 
       <div className="stats-metrics-grid">
         <div className="metric-card gold-glow">
-          <span className="metric-title">Total Interventions</span>
+          <span className="metric-title">Total Participations</span>
           <span className="metric-value">{totalClicks}</span>
           <span className="metric-footer">Total accumulated user choices</span>
         </div>
         
         <div className="metric-card green-glow">
-          <span className="metric-title">Top Requested Service</span>
+          <span className="metric-title">Highest Traction</span>
           <span className="metric-value">
             {totalClicks > 0 && sortedServices[0] && counts[sortedServices[0].id] > 0
               ? sortedServices[0].title 

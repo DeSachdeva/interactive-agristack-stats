@@ -125,18 +125,18 @@
 
 /* EDITS: Increased size of main and sub logos for high visibility */
 .logo-main {
-  height: 52px; /* Increased from 38px */
+  height: 52px;
   object-fit: contain;
 }
 
 .logo-divider {
   width: 1px;
-  height: 38px; /* Increased to match logo height */
+  height: 48px;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
 .logo-sub {
-  height: 44px; /* Increased from 32px */
+  height: 64px; /* Significantly increased for high visibility */
   object-fit: contain;
 }
 
