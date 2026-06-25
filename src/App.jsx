@@ -225,6 +225,9 @@ export default function App() {
         <p className="flex-center">
           Made with <Heart size={14} className="heart-icon" /> for Indian Agriculture • Agristack Dashboard © 2026
         </p>
+        <div className="vercel-badge">
+          ▲ Powered by Vercel (devansh-sachdeva)
+        </div>
       </footer>
 
       {/* Confetti Ribbon Particles Overlay */}

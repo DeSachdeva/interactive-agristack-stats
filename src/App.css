@@ -1404,6 +1404,20 @@
   background: rgba(13, 15, 18, 0.6);
 }
 
+.vercel-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  opacity: 0.55;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
