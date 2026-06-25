@@ -8,7 +8,6 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
   const [layoutMode, setLayoutMode] = useState('circular'); // 'circular' or 'grid'
 
   const activeServices = SERVICES.filter(s => s.active);
-  const inactiveServices = SERVICES.filter(s => !s.active);
 
   // SVG dimensions
   const centerSize = 290; // 580px width / 2
@@ -48,7 +47,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
               {SERVICES.map((service, index) => {
                 if (!service.active) return null;
 
-                const angleDeg = (index * 30) - 90;
+                const angleDeg = (index * 45) - 90; // 8 items -> 45 deg step
                 const radius = 220;
                 const angleRad = (angleDeg * Math.PI) / 180;
                 
@@ -83,11 +82,29 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
             <div className={`central-hub ${hoveredService ? 'hub-hovered' : ''}`}>
               <div className="hub-inner">
                 <div className="farmer-avatar">
-                  <ServiceIcon name="User" size={48} color="#27ae60" />
+                  {/* Indian Farmer SVG Cut-out */}
+                  <svg viewBox="0 0 64 64" width="58" height="58" className="farmer-cutout">
+                    <circle cx="32" cy="32" r="30" fill="rgba(39, 174, 96, 0.1)" stroke="rgba(39, 174, 96, 0.25)" strokeWidth="1"/>
+                    {/* Turban */}
+                    <path d="M16 26 C 16 12, 48 12, 48 26 C 44 20, 20 20, 16 26 Z" fill="#e67e22" />
+                    <path d="M18 22 C 20 10, 44 10, 46 22 C 40 16, 24 16, 18 22 Z" fill="#d35400" />
+                    {/* Face */}
+                    <circle cx="32" cy="33" r="13" fill="#f5cba7" />
+                    {/* Eyes */}
+                    <circle cx="27" cy="31" r="1.8" fill="#2c3e50" />
+                    <circle cx="37" cy="31" r="1.8" fill="#2c3e50" />
+                    {/* Mustache */}
+                    <path d="M22 36 C 26 34, 30 36, 32 38 C 34 36, 38 34, 42 36 C 44 39, 38 39, 32 39 C 26 39, 20 39, 22 36 Z" fill="#2c3e50" />
+                    {/* Turban Detail */}
+                    <path d="M30 12 C 32 8, 36 8, 38 12 Z" fill="#e67e22" />
+                    {/* Shoulders */}
+                    <path d="M14 50 C 14 42, 50 42, 50 50 Z" fill="#ffffff" />
+                    <path d="M28 42 L 32 48 L 36 42 Z" fill="#f5cba7" />
+                  </svg>
                 </div>
                 <div className="farmer-text">
-                  <span className="farmer-title">FARMER</span>
-                  <span className="farmer-year">@2026</span>
+                  <span className="farmer-title">10+ Crore</span>
+                  <span className="farmer-year">Indian Farmers</span>
                 </div>
               </div>
               <div className="hub-glow"></div>
@@ -95,7 +112,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
 
             {/* Service Buttons placed in circle */}
             {SERVICES.map((service, index) => {
-              const angleDeg = (index * 30) - 90;
+              const angleDeg = (index * 45) - 90; // 8 items -> 45 deg step
               const radius = 220;
               const angleRad = (angleDeg * Math.PI) / 180;
               
@@ -123,9 +140,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
                     <div className="icon-box">
                       <ServiceIcon name={service.icon} size={28} color={service.active ? service.color : '#888'} />
                     </div>
-                    {service.active && counts[service.id] > 0 && (
-                      <span className="badge-count animate-pop">{counts[service.id]}</span>
-                    )}
+                    {/* Badge counts removed on circular button items */}
                   </button>
                   <div className="dial-label-container">
                     <span className="dial-label">{service.title}</span>

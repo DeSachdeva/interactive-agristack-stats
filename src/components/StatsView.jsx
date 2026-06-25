@@ -91,45 +91,6 @@ export const StatsView = ({ counts, onReset, totalClicks }) => {
             })}
           </div>
         </div>
-
-        <div className="table-card">
-          <h3>Detailed Metrics</h3>
-          <div className="table-responsive">
-            <table className="stats-table">
-              <thead>
-                <tr>
-                  <th>Service</th>
-                  <th>Status</th>
-                  <th>Press Count</th>
-                  <th>Share</th>
-                </tr>
-              </thead>
-              <tbody>
-                {SERVICES.map((service) => {
-                  const count = counts[service.id] || 0;
-                  const percent = getPercentage(count);
-                  return (
-                    <tr key={service.id} className={service.active ? 'row-active' : 'row-inactive'}>
-                      <td>
-                        <div className="table-service-cell">
-                          <ServiceIcon name={service.icon} size={16} color={service.active ? service.color : '#888'} />
-                          <span>{service.title}</span>
-                        </div>
-                      </td>
-                      <td>
-                        <span className={`status-badge ${service.active ? 'active' : 'inactive'}`}>
-                          {service.active ? 'Active' : 'Disabled'}
-                        </span>
-                      </td>
-                      <td className="font-mono">{service.active ? count : '-'}</td>
-                      <td className="font-mono">{service.active ? `${percent}%` : '-'}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
       </div>
 
       {/* Confirmation Modal */}

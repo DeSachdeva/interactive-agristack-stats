@@ -1,7 +1,7 @@
 export const SERVICES = [
   {
     id: "fertiliser_access",
-    title: "Fertiliser Access",
+    title: "Access to Fertiliser",
     icon: "Sprout",
     active: true,
     angle: 0,
@@ -13,18 +13,9 @@ export const SERVICES = [
     title: "Crop Insurance",
     icon: "Umbrella",
     active: true,
-    angle: 30,
+    angle: 45,
     color: "#3498db", // Blue
     description: "Protect your fields from unforeseen weather conditions and disasters."
-  },
-  {
-    id: "financial_support",
-    title: "Financial Support",
-    icon: "HandCoins",
-    active: true,
-    angle: 60,
-    color: "#e67e22", // Orange
-    description: "Financial assistance, credit options, and government subsidies."
   },
   {
     id: "msp_procurement",
@@ -36,38 +27,29 @@ export const SERVICES = [
     description: "Direct minimum support price selling channel for farmers."
   },
   {
-    id: "crop_survey_insights",
-    title: "Crop Survey & Insights",
-    icon: "Eye",
-    active: true,
-    angle: 120,
-    color: "#9b59b6", // Purple
-    description: "Drones and satellite imagery analysis for crop health forecasting."
-  },
-  {
     id: "market_price_information",
     title: "Market Price Information",
     icon: "Coins",
     active: true,
-    angle: 150,
+    angle: 135,
     color: "#e67e22", // Orange
     description: "Live daily mandi rates and price forecasting."
   },
   {
-    id: "pest_advisory",
-    title: "Pest Advisory",
-    icon: "Bug",
+    id: "farm_advisory",
+    title: "Farm Advisory",
+    icon: "CloudSun",
     active: true,
     angle: 180,
-    color: "#e74c3c", // Red
-    description: "Identify crop pests and access expert pesticide solutions."
+    color: "#f39c12", // Amber
+    description: "Real-time weather advisory alerts, crop disease forecasting, and pest solutions."
   },
   {
     id: "disaster_relief_support",
     title: "Disaster Relief Support",
     icon: "HeartHandshake",
     active: true,
-    angle: 210,
+    angle: 225,
     color: "#9b59b6", // Purple
     description: "Emergency support and compensation tracking."
   },
@@ -76,34 +58,16 @@ export const SERVICES = [
     title: "Soil Health Card",
     icon: "Activity",
     active: true,
-    angle: 240,
+    angle: 270,
     color: "#1abc9c", // Teal
     description: "Check nutrient content and soil quality reports."
   },
   {
-    id: "weather_advisory",
-    title: "Weather Advisory",
-    icon: "CloudSun",
-    active: true,
-    angle: 270,
-    color: "#f39c12", // Amber
-    description: "Real-time updates and alerts on precipitation and wind."
-  },
-  {
-    id: "loan_access",
-    title: "Loan Access",
-    icon: "Landmark",
-    active: true,
-    angle: 300,
-    color: "#2ecc71", // Green
-    description: "Hassle-free agriculture loans and credit."
-  },
-  {
     id: "credit_access",
-    title: "Credit Access",
+    title: "Access to Credit",
     icon: "CreditCard",
     active: true,
-    angle: 330,
+    angle: 315,
     color: "#16a085", // Dark Teal
     description: "Easy credit line activation for purchase of inputs."
   }
