@@ -67,7 +67,7 @@ export const TRANSLATIONS = {
     disaster_relief_support_impact: "💸 MH Panchnama disbursed ₹14,000 crore to 89 lakh crop loss affected farmers. MahaDBT system registered 47 lakh farmers and disbursed ₹5,845 crore using Farmer ID.",
     soil_health_card_impact: "🧪 Soil Health Card live in 10 states (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) with 29,224 farmers registered and 15,152 soil samples collected.",
     credit_access_impact: "💳 KCC Loans through JanSamarth: 4,407 KCC applications processed using AgriStack across Maharashtra (2,730), MP (1,576), UP (96), and Gujarat (5). MoUs executed with 10 states and 9 banks.",
-    seeds_distribution_impact: "🌱 Seed Registry SATHI: Phase-I enables tracking of Farmer’s Varieties and automated seed distribution, planning go-live by July 2026.",
+    seeds_distribution_impact: "🌱 Seed Registry SATHI: Enabled comprehensive digital tracking of certified seeds, licensing, and direct distribution to farmers for quality control and higher yields.",
     income_support_impact: "💰 PM-Kisan Income Support: 5.97 crore Farmer IDs seeded and 4.35 lakh new farmers registered using Farmer ID.",
     nextFarmer: "Next Farmer ➔"
   },
@@ -139,7 +139,7 @@ export const TRANSLATIONS = {
     disaster_relief_support_impact: "💸 महाराष्ट्र पंचनामा द्वारा 89 लाख प्रभावित किसानों को ₹14,000 करोड़ वितरित। महाडीबीटी में 47 लाख किसान पंजीकृत, ₹5,845 करोड़ वितरित किए गए।",
     soil_health_card_impact: "🧪 10 राज्यों (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) में लाइव। किसान आईडी से 29,224 किसान पंजीकृत और 15,152 मिट्टी के नमूने एकत्र किए गए।",
     credit_access_impact: "💳 जनसमर्थ के माध्यम से KCC ऋण: महाराष्ट्र (2,730), MP (1,576), UP (96) और गुजरात (5) में AgriStack का उपयोग करके 4,407 KCC आवेदन संसाधित किए गए। डिजिटल क्रेडिट वितरण के लिए 10 राज्यों और 9 बैंकों के साथ MoU हस्ताक्षरित हैं।",
-    seeds_distribution_impact: "🌱 बीज रजिस्ट्री SATHI: चरण-I किसान की किस्मों की ट्रैकिंग और स्वचालित बीज वितरण को सक्षम बनाता है, जुलाई 2026 तक गो-लाइव की योजना है।",
+    seeds_distribution_impact: "🌱 बीज रजिस्ट्री साथी (SATHI): गुणवत्ता नियंत्रण और अधिक पैदावार के लिए प्रमाणित बीजों, लाइसेंसिंग और किसानों को सीधे वितरण की व्यापक डिजिटल ट्रैकिंग शुरू की गई है।",
     income_support_impact: "💰 PM-Kisan आय सहायता: 5.97 करोड़ किसान आईडी सीड की गईं और किसान आईडी का उपयोग करके 4.35 लाख नए किसान पंजीकृत किए गए।",
     nextFarmer: "अगला किसान ➔"
   }
