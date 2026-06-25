@@ -59,7 +59,8 @@ export const TRANSLATIONS = {
     msg2: "🌾 Outstanding decision! Accessing this empowers your household and ensures resource efficiency.",
     msg3: "✨ Excellent choice! Many modern farmers have transformed their cultivation with this exact input.",
     msg4: "🌟 Brilliant choice! This is an essential step towards securing sustainable and profitable farming.",
-    msg5: "🚀 Great Choice! This is one of the fastest-growing services chosen by Indian farmers today."
+    msg5: "🚀 Great Choice! This is one of the fastest-growing services chosen by Indian farmers today.",
+    nextFarmer: "Next Farmer ➔"
   },
   hi: {
     // Nav & Tabs
@@ -121,6 +122,7 @@ export const TRANSLATIONS = {
     msg2: "🌾 उत्कृष्ट निर्णय! यह सेवा आपके परिवार को सशक्त बनाती है और संसाधनों का सही उपयोग सुनिश्चित करती है।",
     msg3: "✨ बढ़िया पसंद! कई आधुनिक किसानों ने इस इनपुट की सहायता से अपनी खेती में बड़ा बदलाव किया है।",
     msg4: "🌟 बेहतरीन निर्णय! यह टिकाऊ और लाभदायक खेती को सुरक्षित करने की दिशा में एक महत्वपूर्ण कदम है।",
-    msg5: "🚀 गजब का विकल्प! यह आज भारतीय किसानों द्वारा सबसे अधिक पसंद की जाने वाली सेवाओं में से एक है।"
+    msg5: "🚀 गजब का विकल्प! यह आज भारतीय किसानों द्वारा सबसे अधिक पसंद की जाने वाली सेवाओं में से एक है।",
+    nextFarmer: "अगला किसान ➔"
   }
 };

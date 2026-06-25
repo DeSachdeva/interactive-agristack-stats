@@ -40,7 +40,8 @@ export default function App() {
     return initial;
   });
 
-  const [toasts, setToasts] = useState([]);
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [activeMessages, setActiveMessages] = useState({}); // { serviceId: msgIndex }
   const [confettiParticles, setConfettiParticles] = useState([]);
 
   // Sync click counts to localStorage
@@ -75,19 +76,18 @@ export default function App() {
       [serviceId]: (prev[serviceId] || 0) + 1
     }));
 
-    // Trigger celebrative toast based on active language
-    const t = TRANSLATIONS[lang];
-    const msgs = [t.msg1, t.msg2, t.msg3, t.msg4, t.msg5];
-    const randomMsg = msgs[Math.floor(Math.random() * msgs.length)];
-    const id = Date.now();
-    const newToast = {
-      id,
-      message: randomMsg,
-      color: service.color
-    };
-    setToasts(prev => [...prev, newToast]);
+    // Add to selected services if not already present
+    if (!selectedServices.includes(serviceId)) {
+      setSelectedServices(prev => [...prev, serviceId]);
+      const randomIdx = Math.floor(Math.random() * 5); // 0 to 4
+      setActiveMessages(prev => ({
+        ...prev,
+        [serviceId]: randomIdx
+      }));
+    }
 
     // Trigger confetti particles
+    const id = Date.now();
     const newParticles = Array.from({ length: 45 }).map((_, i) => ({
       id: `${id}-${i}`,
       left: Math.random() * 100, // random X position across screen width
@@ -100,14 +100,15 @@ export default function App() {
 
     setConfettiParticles(prev => [...prev, ...newParticles]);
 
-    // Clean up toasts & particles
-    setTimeout(() => {
-      setToasts(prev => prev.filter(t => t.id !== id));
-    }, 4000);
-
+    // Clean up particles
     setTimeout(() => {
       setConfettiParticles(prev => prev.filter(p => !p.id.startsWith(id)));
     }, 3500);
+  };
+
+  const handleNextFarmer = () => {
+    setSelectedServices([]);
+    setActiveMessages({});
   };
 
   const handleReset = () => {
@@ -204,6 +205,9 @@ export default function App() {
               onServiceClick={handleServiceClick}
               totalClicks={totalClicks}
               lang={lang}
+              selectedServices={selectedServices}
+              activeMessages={activeMessages}
+              onNextFarmer={handleNextFarmer}
             />
           ) : (
             <StatsView 
@@ -238,27 +242,6 @@ export default function App() {
         />
       ))}
 
-      {/* Dark overlay backdrop behind toast popup */}
-      {toasts.length > 0 && (
-        <div className="toast-backdrop" />
-      )}
-
-      {/* Toast Notification Container */}
-      <div className="toast-container">
-        {toasts.map(toast => (
-          <div 
-            key={toast.id} 
-            className="toast-card animate-slide-in celebrative"
-            style={{ borderLeftColor: toast.color }}
-          >
-            <div className="toast-dot" style={{ backgroundColor: toast.color }}></div>
-            <span>{toast.message}</span>
-            <button className="toast-close-btn" onClick={() => setToasts(prev => prev.filter(t => t.id !== toast.id))}>
-              <X size={16} />
-            </button>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }

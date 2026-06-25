@@ -4,7 +4,15 @@ import { ServiceIcon } from './ServiceIcon';
 import { TRANSLATIONS } from '../data/translations';
 import { Sparkles, Grid, RotateCcw } from 'lucide-react';
 
-export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' }) => {
+export const ServicePanel = ({ 
+  counts, 
+  onServiceClick, 
+  totalClicks, 
+  lang = 'en',
+  selectedServices = [],
+  activeMessages = {},
+  onNextFarmer
+}) => {
   const [hoveredService, setHoveredService] = useState(null);
   const [layoutMode, setLayoutMode] = useState('circular'); // 'circular' or 'grid'
 
@@ -147,6 +155,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
               
               const x = Math.round(radius * Math.cos(angleRad));
               const y = Math.round(radius * Math.sin(angleRad));
+              const isSelected = selectedServices.includes(service.id);
 
               return (
                 <div 
@@ -157,7 +166,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
                   }}
                 >
                   <button
-                    className={`dial-item ${service.active ? 'active' : 'disabled'} ${hoveredService === service.id ? 'hovered' : ''}`}
+                    className={`dial-item ${service.active ? 'active' : 'disabled'} ${hoveredService === service.id ? 'hovered' : ''} ${isSelected ? 'selected-glow' : ''}`}
                     onClick={() => service.active && onServiceClick(service.id)}
                     onMouseEnter={() => setHoveredService(service.id)}
                     onMouseLeave={() => setHoveredService(null)}
@@ -173,6 +182,17 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
                   <div className="dial-label-container">
                     <span className="dial-label">{t[service.id]}</span>
                   </div>
+
+                  {/* Speech bubble next to circle */}
+                  {isSelected && activeMessages[service.id] !== undefined && (
+                    <div 
+                      className={`node-message-bubble ${x >= 0 ? 'pos-right' : 'pos-left'}`}
+                      style={{ '--service-color': service.color }}
+                    >
+                      <div className="bubble-arrow" />
+                      <span>{TRANSLATIONS[lang]['msg' + (activeMessages[service.id] + 1)]}</span>
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -210,6 +230,15 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' 
               </div>
             )}
           </div>
+
+          {/* Next Farmer Action Button */}
+          {selectedServices.length > 0 && (
+            <div className="next-farmer-container animate-fade-in">
+              <button className="next-farmer-btn" onClick={onNextFarmer}>
+                {t.nextFarmer}
+              </button>
+            </div>
+          )}
         </div>
       ) : (
         <div className="grid-wrapper animate-fade-in">
