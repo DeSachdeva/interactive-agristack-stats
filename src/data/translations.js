@@ -59,11 +59,11 @@ export const TRANSLATIONS = {
     exportSuccess: "Data exported successfully!",
 
     // Impact facts
-    fertiliser_access_impact: "🌱 10.05 lakh Farmer ID-based registrations completed, with successful validation of fertilizer sales transactions across MP.",
+    fertiliser_access_impact: "🌱 Fertilizer Pilots: Underway across 7 states with 69,020 MT pre-booked by 2.52 lakh farmers in 20 days. In Madhya Pradesh, fertilizer sales are live across the entire state.",
     crop_insurance_impact: "☔ 2.9 crore Farmer IDs seeded in NCIP Portal and 76.3 lakh farmer registrations done in Maharashtra using Farmer ID (FID).",
     msp_procurement_impact: "🌾 27.53 lakh Farmer IDs seeded in Chhattisgarh. In UP, 2.30 lakh farmers registered for wheat. MP connected 1.21 lakh Urad Dal & 27.09 lakh Soybean farmers under MSP.",
     market_price_information_impact: "📈 Crop Registry integrated in Tamil Nadu's UZHAVAN and State DCS apps. In TN's Kuruvai scheme, 5.59 lakh farmers registered using Farmer ID.",
-    farm_advisory_impact: "📡 Targeted Farm Advisory: Reached 1.60 lakh Urad Dal farmers in UP via targeted SMS campaigns.",
+    farm_advisory_impact: "📡 Targeted Farm Advisory: Sent advisory SMS to 27.09 lakh Soybean farmers in Madhya Pradesh, and 1.60 lakh Urad Dal farmers in Uttar Pradesh.",
     disaster_relief_support_impact: "💸 MH Panchnama disbursed ₹14,000 crore to 89 lakh crop loss affected farmers. MahaDBT system registered 47 lakh farmers and disbursed ₹5,845 crore using Farmer ID.",
     soil_health_card_impact: "🧪 Soil Health Card live in 10 states (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) with 29,224 farmers registered and 15,152 soil samples collected.",
     credit_access_impact: "💳 KCC Loans through JanSamarth: 4,407 KCC applications processed using AgriStack across Maharashtra (2,730), MP (1,576), UP (96), and Gujarat (5). MoUs executed with 10 states and 9 banks.",
@@ -131,11 +131,11 @@ export const TRANSLATIONS = {
     exportSuccess: "डेटा सफलतापूर्वक निर्यात किया गया!",
 
     // Impact facts
-    fertiliser_access_impact: "🌱 10.05 लाख किसान आईडी-आधारित पंजीकरण पूरे हुए, मध्य प्रदेश में उर्वरक बिक्री लेनदेन के सफल सत्यापन के साथ।",
-    crop_insurance_impact: "☔ NCIP पोर्टल में 2.9 करोड़ किसान आईडी सीड की गईं और महाराष्ट्र में FID का उपयोग करके 76.3 लाख किसान पंजीकरण किए गए।",
+    fertiliser_access_impact: "🌱 उर्वरक पायलट: 20 दिनों में 2.52 लाख किसानों द्वारा 69,020 मीट्रिक टन की प्री-बुकिंग के साथ 7 राज्यों में पायलट शुरू। मध्य प्रदेश में पूरे राज्य में उर्वरक बिक्री लाइव है।",
+    crop_insurance_impact: "☔ NCIP पोर्टल में 2.9 करोड़ किसान आईडी सीड की गईं और महाराष्ट्र में FID का उपयोग करके 76.3 lakh किसान पंजीकरण किए गए।",
     msp_procurement_impact: "🌾 छत्तीसगढ़ खरीद प्रणाली में 27.53 लाख किसान आईडी सीड की गईं। यूपी में गेहूं के लिए 2.30 लाख किसान पंजीकृत। एमपी में 1.21 लाख उड़द दाल और 27.09 लाख सोयाबीन किसान एमएसपी से जुड़े।",
     market_price_information_impact: "📈 तमिलनाडु ने उझावन और राज्य DCS ऐप में फसल रजिस्ट्री को एकीकृत किया। तमिलनाडु की कुरुवई योजना में 5.59 लाख किसानों ने किसान आईडी से पंजीकरण कराया।",
-    farm_advisory_impact: "📡 लक्षित कृषि परामर्श: लक्षित एसएमएस अभियानों के माध्यम से यूपी में 1.60 लाख उड़द दाल किसानों तक पहुंच बनाई गई है।",
+    farm_advisory_impact: "📡 लक्षित कृषि परामर्श: मध्य प्रदेश में 27.09 लाख सोयाबीन किसानों को, और उत्तर प्रदेश में 1.60 लाख उड़द दाल किसानों को कृषि परामर्श एसएमएस भेजे गए हैं।",
     disaster_relief_support_impact: "💸 महाराष्ट्र पंचनामा द्वारा 89 लाख प्रभावित किसानों को ₹14,000 करोड़ वितरित। महाडीबीटी में 47 लाख किसान पंजीकृत, ₹5,845 करोड़ वितरित किए गए।",
     soil_health_card_impact: "🧪 10 राज्यों (UP, GJ, AS, MP, AP, OD, TG, TN, CG, RJ) में लाइव। किसान आईडी से 29,224 किसान पंजीकृत और 15,152 मिट्टी के नमूने एकत्र किए गए।",
     credit_access_impact: "💳 जनसमर्थ के माध्यम से KCC ऋण: महाराष्ट्र (2,730), MP (1,576), UP (96) और गुजरात (5) में AgriStack का उपयोग करके 4,407 KCC आवेदन संसाधित किए गए। डिजिटल क्रेडिट वितरण के लिए 10 राज्यों और 9 बैंकों के साथ MoU हस्ताक्षरित हैं।",
