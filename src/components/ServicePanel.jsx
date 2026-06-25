@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { SERVICES } from '../data/services';
 import { ServiceIcon } from './ServiceIcon';
+import { TRANSLATIONS } from '../data/translations';
 import { Sparkles, Grid, RotateCcw } from 'lucide-react';
 
-export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
+export const ServicePanel = ({ counts, onServiceClick, totalClicks, lang = 'en' }) => {
   const [hoveredService, setHoveredService] = useState(null);
   const [layoutMode, setLayoutMode] = useState('circular'); // 'circular' or 'grid'
 
+  const t = TRANSLATIONS[lang];
   const activeServices = SERVICES.filter(s => s.active);
 
   // SVG dimensions
@@ -16,9 +18,9 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
     <div className="panel-container">
       <div className="panel-header">
         <div className="badge-container">
-          <span className="badge">CHOOSE • PLACE • DISCOVER</span>
+          <span className="badge">{t.choosePlaceDiscover}</span>
         </div>
-        <h2 className="panel-subtitle">Your choices. Stronger farmers. Better future.</h2>
+        <h2 className="panel-subtitle">{t.subtitle}</h2>
         
         <div className="layout-toggle">
           <button 
@@ -26,14 +28,14 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
             onClick={() => setLayoutMode('circular')}
             title="Circular Layout"
           >
-            <RotateCcw size={16} /> Radial Dial
+            <RotateCcw size={16} /> {lang === 'en' ? 'Radial Dial' : 'रेडियल डायल'}
           </button>
           <button 
             className={`toggle-btn ${layoutMode === 'grid' ? 'active' : ''}`}
             onClick={() => setLayoutMode('grid')}
             title="Grid Layout"
           >
-            <Grid size={16} /> Grid Layout
+            <Grid size={16} /> {lang === 'en' ? 'Grid Layout' : 'ग्रिड लेआउट'}
           </button>
         </div>
       </div>
@@ -82,29 +84,45 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
             <div className={`central-hub ${hoveredService ? 'hub-hovered' : ''}`}>
               <div className="hub-inner">
                 <div className="farmer-avatar">
-                  {/* Indian Farmer SVG Cut-out */}
-                  <svg viewBox="0 0 64 64" width="58" height="58" className="farmer-cutout">
-                    <circle cx="32" cy="32" r="30" fill="rgba(39, 174, 96, 0.1)" stroke="rgba(39, 174, 96, 0.25)" strokeWidth="1"/>
-                    {/* Turban */}
-                    <path d="M16 26 C 16 12, 48 12, 48 26 C 44 20, 20 20, 16 26 Z" fill="#e67e22" />
-                    <path d="M18 22 C 20 10, 44 10, 46 22 C 40 16, 24 16, 18 22 Z" fill="#d35400" />
-                    {/* Face */}
-                    <circle cx="32" cy="33" r="13" fill="#f5cba7" />
-                    {/* Eyes */}
-                    <circle cx="27" cy="31" r="1.8" fill="#2c3e50" />
-                    <circle cx="37" cy="31" r="1.8" fill="#2c3e50" />
-                    {/* Mustache */}
-                    <path d="M22 36 C 26 34, 30 36, 32 38 C 34 36, 38 34, 42 36 C 44 39, 38 39, 32 39 C 26 39, 20 39, 22 36 Z" fill="#2c3e50" />
-                    {/* Turban Detail */}
-                    <path d="M30 12 C 32 8, 36 8, 38 12 Z" fill="#e67e22" />
-                    {/* Shoulders */}
-                    <path d="M14 50 C 14 42, 50 42, 50 50 Z" fill="#ffffff" />
-                    <path d="M28 42 L 32 48 L 36 42 Z" fill="#f5cba7" />
+                  {/* Multiple Indian Farmers SVG Cut-out */}
+                  <svg viewBox="0 0 64 64" width="64" height="64" className="farmer-cutout">
+                    <circle cx="32" cy="32" r="30" fill="rgba(39, 174, 96, 0.05)" stroke="rgba(39, 174, 96, 0.2)" strokeWidth="1"/>
+                    
+                    {/* Left Farmer (Smaller, Back) */}
+                    <g transform="translate(-10, 4) scale(0.82)">
+                      <path d="M16 26 C 16 12, 48 12, 48 26 C 44 20, 20 20, 16 26 Z" fill="#d35400" />
+                      <path d="M18 22 C 20 10, 44 10, 46 22 C 40 16, 24 16, 18 22 Z" fill="#c0392b" />
+                      <circle cx="32" cy="33" r="13" fill="#e0ab76" />
+                      <path d="M22 36 C 26 34, 30 36, 32 38 C 34 36, 38 34, 42 36 Z" fill="#1e293b" />
+                      <path d="M14 50 C 14 42, 50 42, 50 50 Z" fill="#f3f4f6" />
+                    </g>
+
+                    {/* Right Farmer (Smaller, Back) */}
+                    <g transform="translate(10, 4) scale(0.82)">
+                      <path d="M16 26 C 16 12, 48 12, 48 26 C 44 20, 20 20, 16 26 Z" fill="#16a085" />
+                      <path d="M18 22 C 20 10, 44 10, 46 22 C 40 16, 24 16, 18 22 Z" fill="#117a65" />
+                      <circle cx="32" cy="33" r="13" fill="#e59866" />
+                      <path d="M22 36 C 26 34, 30 36, 32 38 C 34 36, 38 34, 42 36 Z" fill="#1e293b" />
+                      <path d="M14 50 C 14 42, 50 42, 50 50 Z" fill="#f3f4f6" />
+                    </g>
+
+                    {/* Main Center Farmer (In Front) */}
+                    <g transform="translate(0, 2)">
+                      <path d="M16 26 C 16 12, 48 12, 48 26 C 44 20, 20 20, 16 26 Z" fill="#e67e22" />
+                      <path d="M18 22 C 20 10, 44 10, 46 22 C 40 16, 24 16, 18 22 Z" fill="#d35400" />
+                      <circle cx="32" cy="33" r="13" fill="#f5cba7" />
+                      <circle cx="27" cy="31" r="1.8" fill="#2c3e50" />
+                      <circle cx="37" cy="31" r="1.8" fill="#2c3e50" />
+                      <path d="M22 36 C 26 34, 30 36, 32 38 C 34 36, 38 34, 42 36 C 44 39, 38 39, 32 39 C 26 39, 20 39, 22 36 Z" fill="#2c3e50" />
+                      <path d="M30 12 C 32 8, 36 8, 38 12 Z" fill="#e67e22" />
+                      <path d="M14 50 C 14 42, 50 42, 50 50 Z" fill="#ffffff" />
+                      <path d="M28 42 L 32 48 L 36 42 Z" fill="#f5cba7" />
+                    </g>
                   </svg>
                 </div>
                 <div className="farmer-text">
-                  <span className="farmer-title">10+ Crore</span>
-                  <span className="farmer-year">Indian Farmers</span>
+                  <span className="farmer-title">10+ {t.crore}</span>
+                  <span className="farmer-year">{t.indianFarmers}</span>
                 </div>
               </div>
               <div className="hub-glow"></div>
@@ -140,10 +158,9 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
                     <div className="icon-box">
                       <ServiceIcon name={service.icon} size={28} color={service.active ? service.color : '#888'} />
                     </div>
-                    {/* Badge counts removed on circular button items */}
                   </button>
                   <div className="dial-label-container">
-                    <span className="dial-label">{service.title}</span>
+                    <span className="dial-label">{t[service.id]}</span>
                   </div>
                 </div>
               );
@@ -164,13 +181,12 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
                   <div className="detail-content animate-fade-in">
                     <div className="detail-header" style={{ color: s.color }}>
                       <ServiceIcon name={s.icon} size={20} color={s.color} />
-                      <h3>{s.title}</h3>
-                      {!s.active && <span className="disabled-tag">Inactive</span>}
+                      <h3>{t[s.id]}</h3>
                     </div>
-                    <p>{s.description}</p>
+                    <p>{t[s.id + '_desc']}</p>
                     {s.active && (
                       <div className="presses-stat">
-                        Pressed: <strong>{counts[s.id] || 0} times</strong>
+                        {t.pressCount}: <strong>{counts[s.id] || 0} {t.times}</strong>
                       </div>
                     )}
                   </div>
@@ -179,7 +195,7 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
             ) : (
               <div className="detail-content placeholder animate-fade-in">
                 <Sparkles size={20} color="#27ae60" className="sparkle-icon" />
-                <p>Hover over any service button to learn more or click to register interest.</p>
+                <p>{t.hoverPrompt}</p>
               </div>
             )}
           </div>
@@ -201,18 +217,12 @@ export const ServicePanel = ({ counts, onServiceClick, totalClicks }) => {
                   )}
                 </div>
                 <div className="grid-card-content">
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
+                  <h3>{t[service.id]}</h3>
+                  <p>{t[service.id + '_desc']}</p>
                 </div>
-                {service.active ? (
-                  <div className="grid-card-action">
-                    Click to Select
-                  </div>
-                ) : (
-                  <div className="grid-card-action disabled-text">
-                    Unavailable
-                  </div>
-                )}
+                <div className="grid-card-action">
+                  {t.clickSelect}
+                </div>
               </div>
             ))}
           </div>

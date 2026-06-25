@@ -2,23 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { ServicePanel } from './components/ServicePanel';
 import { StatsView } from './components/StatsView';
 import { SERVICES } from './data/services';
-import { BarChart3, LayoutDashboard, Heart, Sun, Moon } from 'lucide-react';
+import { TRANSLATIONS } from './data/translations';
+import { BarChart3, LayoutDashboard, Heart, Sun, Moon, Languages } from 'lucide-react';
 import './App.css';
-
-const CELEBRATIVE_MESSAGES = [
-  "🎉 Splendid Choice! Thousands of Indian farmers in your area are driving yield growth using this service.",
-  "🌾 Outstanding decision! Accessing this empowers your household and ensures resource efficiency.",
-  "✨ Excellent choice! Many modern farmers have transformed their cultivation with this exact input.",
-  "🌟 Brilliant choice! This is an essential step towards securing sustainable and profitable farming.",
-  "🚀 Great Choice! This is one of the fastest-growing services chosen by Indian farmers today."
-];
 
 const CONFETTI_COLORS = ['#2ecc71', '#e74c3c', '#f1c40f', '#3498db', '#9b59b6', '#e67e22', '#1abc9c'];
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('panel'); // 'panel' | 'stats'
+  
+  // Theme state
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('agristack_theme') || 'light';
+  });
+
+  // Language state: 'en' | 'hi'
+  const [lang, setLang] = useState(() => {
+    return localStorage.getItem('agristack_lang') || 'en';
   });
 
   // Click counts state
@@ -43,7 +43,7 @@ export default function App() {
   const [toasts, setToasts] = useState([]);
   const [confettiParticles, setConfettiParticles] = useState([]);
 
-  // Sync to localStorage
+  // Sync click counts to localStorage
   useEffect(() => {
     localStorage.setItem('agristack_clicks', JSON.stringify(counts));
   }, [counts]);
@@ -53,8 +53,17 @@ export default function App() {
     localStorage.setItem('agristack_theme', theme);
   }, [theme]);
 
+  // Sync language
+  useEffect(() => {
+    localStorage.setItem('agristack_lang', lang);
+  }, [lang]);
+
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
+  const toggleLang = () => {
+    setLang(prev => prev === 'en' ? 'hi' : 'en');
   };
 
   const handleServiceClick = (serviceId) => {
@@ -66,8 +75,10 @@ export default function App() {
       [serviceId]: (prev[serviceId] || 0) + 1
     }));
 
-    // Trigger celebrative toast
-    const randomMsg = CELEBRATIVE_MESSAGES[Math.floor(Math.random() * CELEBRATIVE_MESSAGES.length)];
+    // Trigger celebrative toast based on active language
+    const t = TRANSLATIONS[lang];
+    const msgs = [t.msg1, t.msg2, t.msg3, t.msg4, t.msg5];
+    const randomMsg = msgs[Math.floor(Math.random() * msgs.length)];
     const id = Date.now();
     const newToast = {
       id,
@@ -77,13 +88,13 @@ export default function App() {
     setToasts(prev => [...prev, newToast]);
 
     // Trigger confetti particles
-    const newParticles = Array.from({ length: 30 }).map((_, i) => ({
+    const newParticles = Array.from({ length: 45 }).map((_, i) => ({
       id: `${id}-${i}`,
       left: Math.random() * 100, // random X position across screen width
       color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
-      angle: (Math.random() * 60) - 30, // tilt angle -30 to 30 deg
-      delay: Math.random() * 0.4, // delayed explosion flow
-      speed: 1 + Math.random() * 1.5, // 1 to 2.5 seconds flight speed
+      angle: (Math.random() * 80) - 40, // tilt angle -40 to 40 deg
+      delay: Math.random() * 0.5, // delayed explosion flow
+      speed: 1.2 + Math.random() * 1.8, // flight speed
       shape: Math.random() > 0.5 ? 'rect' : 'circle'
     }));
 
@@ -92,11 +103,11 @@ export default function App() {
     // Clean up toasts & particles
     setTimeout(() => {
       setToasts(prev => prev.filter(t => t.id !== id));
-    }, 3500);
+    }, 4000);
 
     setTimeout(() => {
       setConfettiParticles(prev => prev.filter(p => !p.id.startsWith(id)));
-    }, 3000);
+    }, 3500);
   };
 
   const handleReset = () => {
@@ -110,6 +121,7 @@ export default function App() {
   };
 
   const totalClicks = Object.values(counts).reduce((a, b) => a + b, 0);
+  const t = TRANSLATIONS[lang];
 
   return (
     <div className={`app-shell theme-${theme}`}>
@@ -141,17 +153,27 @@ export default function App() {
               onClick={() => setActiveTab('panel')}
             >
               <LayoutDashboard size={18} />
-              <span>Services Panel</span>
+              <span>{t.servicesPanel}</span>
             </button>
             <button 
               className={`nav-link ${activeTab === 'stats' ? 'active' : ''}`}
               onClick={() => setActiveTab('stats')}
             >
               <BarChart3 size={18} />
-              <span>Stats & Charts</span>
+              <span>{t.statsCharts}</span>
               {totalClicks > 0 && (
                 <span className="total-badge">{totalClicks}</span>
               )}
+            </button>
+
+            {/* Language Switcher Button */}
+            <button 
+              className="lang-toggle-btn"
+              onClick={toggleLang}
+              title={lang === 'en' ? 'हिन्दी में बदलें' : 'Switch to English'}
+            >
+              <Languages size={18} />
+              <span className="lang-label">{lang === 'en' ? 'हिन्दी' : 'EN'}</span>
             </button>
 
             {/* Theme Toggle Button */}
@@ -171,8 +193,8 @@ export default function App() {
         <div className="content-container">
           <div className="title-section text-center">
             <h1 className="main-heading">
-              What services would you avail <br className="br-desktop" />
-              as a farmer using <span className="highlight-text">Farmer ID</span>?
+              {t.headingPart1} <br className="br-desktop" />
+              {t.headingPart2} <span className="highlight-text">{t.farmerId}</span>?
             </h1>
           </div>
 
@@ -181,12 +203,14 @@ export default function App() {
               counts={counts}
               onServiceClick={handleServiceClick}
               totalClicks={totalClicks}
+              lang={lang}
             />
           ) : (
             <StatsView 
               counts={counts}
               onReset={handleReset}
               totalClicks={totalClicks}
+              lang={lang}
             />
           )}
         </div>
@@ -214,6 +238,11 @@ export default function App() {
         />
       ))}
 
+      {/* Dark overlay backdrop behind toast popup */}
+      {toasts.length > 0 && (
+        <div className="toast-backdrop" />
+      )}
+
       {/* Toast Notification Container */}
       <div className="toast-container">
         {toasts.map(toast => (
@@ -224,6 +253,9 @@ export default function App() {
           >
             <div className="toast-dot" style={{ backgroundColor: toast.color }}></div>
             <span>{toast.message}</span>
+            <button className="toast-close-btn" onClick={() => setToasts(prev => prev.filter(t => t.id !== toast.id))}>
+              <X size={16} />
+            </button>
           </div>
         ))}
       </div>
