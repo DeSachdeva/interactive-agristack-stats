@@ -243,12 +243,6 @@ export default function App() {
         />
       ))}
 
-      {/* Persistent Environment Status Watermark Badge */}
-      <div className="vercel-env-badge">
-        <span className="pulse-dot"></span>
-        <span className="env-label">DEPLOYED ON VERCEL: DEVANSH-SACHDEVA</span>
-      </div>
-
     </div>
   );
 }

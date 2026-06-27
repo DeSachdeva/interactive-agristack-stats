@@ -17,6 +17,36 @@ export const ServicePanel = ({
 }) => {
   const [hoveredService, setHoveredService] = useState(null);
   const [layoutMode, setLayoutMode] = useState('circular'); // 'circular' or 'grid'
+  const [draggedOffsets, setDraggedOffsets] = useState({});
+
+  const handleBubbleMouseDown = (e, serviceId) => {
+    e.preventDefault();
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const currentOffset = draggedOffsets[serviceId] || { x: 0, y: 0 };
+    const initialOffsetX = currentOffset.x;
+    const initialOffsetY = currentOffset.y;
+
+    const handleMouseMove = (moveEvent) => {
+      const dx = moveEvent.clientX - startX;
+      const dy = moveEvent.clientY - startY;
+      setDraggedOffsets(prev => ({
+        ...prev,
+        [serviceId]: {
+          x: initialOffsetX + dx,
+          y: initialOffsetY + dy
+        }
+      }));
+    };
+
+    const handleMouseUp = () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+  };
 
   const t = TRANSLATIONS[lang];
   const activeServices = SERVICES.filter(s => s.active);
@@ -162,7 +192,7 @@ export const ServicePanel = ({
               return (
                 <div 
                   key={service.id}
-                  className="dial-item-wrapper"
+                  className={`dial-item-wrapper ${isSelected ? 'active-wrapper' : ''}`}
                   style={{
                     transform: `translate(${x}px, ${y}px)`
                   }}
@@ -205,13 +235,68 @@ export const ServicePanel = ({
 
                   {/* Speech bubble next to circle */}
                   {isSelected && (
-                    <div 
-                      className={`node-message-bubble ${x >= 0 ? 'pos-right' : 'pos-left'}`}
-                      style={{ '--service-color': service.color }}
-                    >
-                      <div className="bubble-arrow" />
-                      <span>{TRANSLATIONS[lang][service.id + '_impact']}</span>
-                    </div>
+                    (() => {
+                      const offset = draggedOffsets[service.id] || { x: 0, y: 0 };
+                      const bubbleDistance = 220; // push far outwards to clear all nodes by default
+                      const baseBubbleX = Math.round(bubbleDistance * Math.cos(angleRad));
+                      const baseBubbleY = Math.round(bubbleDistance * Math.sin(angleRad));
+                      const bubbleX = baseBubbleX + offset.x;
+                      const bubbleY = baseBubbleY + offset.y;
+                      return (
+                        <>
+                          {/* Leader line connecting button to bubble */}
+                          <svg style={{
+                            position: 'absolute',
+                            left: '50%',
+                            top: '50%',
+                            width: 0,
+                            height: 0,
+                            overflow: 'visible',
+                            pointerEvents: 'none',
+                            zIndex: 80
+                          }}>
+                            <line
+                              x1={0}
+                              y1={0}
+                              x2={bubbleX}
+                              y2={bubbleY}
+                              stroke={service.color}
+                              strokeWidth="2"
+                              strokeDasharray="4,4"
+                            />
+                            <circle cx={bubbleX} cy={bubbleY} r="4" fill={service.color} />
+                          </svg>
+
+                          <div 
+                            className="bubble-positioner"
+                            style={{ 
+                              position: 'absolute',
+                              left: '50%',
+                              top: '50%',
+                              transform: `translate(calc(-50% + ${bubbleX}px), calc(-50% + ${bubbleY}px))`,
+                              zIndex: 150,
+                              pointerEvents: 'none'
+                            }}
+                          >
+                            <div 
+                              className="node-message-bubble dynamic-bubble"
+                              onMouseDown={(e) => handleBubbleMouseDown(e, service.id)}
+                              style={{ 
+                                '--service-color': service.color,
+                                pointerEvents: 'auto',
+                                cursor: 'grab'
+                              }}
+                              title="Drag to reposition this message box"
+                            >
+                              <div style={{ fontSize: '10px', textTransform: 'uppercase', opacity: 0.5, marginBottom: '4px', letterSpacing: '0.05em', userSelect: 'none' }}>
+                                ✥ Drag to reposition
+                              </div>
+                              <span>{TRANSLATIONS[lang][service.id + '_impact']}</span>
+                            </div>
+                          </div>
+                        </>
+                      );
+                    })()
                   )}
 
                   {/* Local Confetti Burst */}
