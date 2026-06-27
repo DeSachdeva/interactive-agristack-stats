@@ -12,11 +12,11 @@ const DEFAULT_BUBBLE_POSITIONS = {
   msp_procurement: { x: 58, y: -9 },
   market_price_information: { x: 78, y: 41 },
   farm_advisory: { x: 48, y: 117 },
-  disaster_relief_support: { x: 0, y: 220 },
-  soil_health_card: { x: -110, y: 220 },
-  credit_access: { x: -240, y: 100 },
-  seeds_distribution: { x: -240, y: -100 },
-  income_support: { x: -180, y: -140 }
+  disaster_relief_support: { x: -103, y: 144 },
+  soil_health_card: { x: -205, y: 136 },
+  credit_access: { x: -293, y: 94 },
+  seeds_distribution: { x: -292, y: -3 },
+  income_support: { x: -302, y: -123 }
 };
 
 export const ServicePanel = ({
