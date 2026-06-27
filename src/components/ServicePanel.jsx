@@ -298,17 +298,11 @@ export const ServicePanel = ({
                           >
                             <div 
                               className="node-message-bubble dynamic-bubble"
-                              onMouseDown={(e) => handleBubbleMouseDown(e, service.id)}
                               style={{ 
                                 '--service-color': service.color,
-                                pointerEvents: 'auto',
-                                cursor: 'grab'
+                                pointerEvents: 'auto'
                               }}
-                              title="Drag to reposition this message box"
                             >
-                              <div style={{ fontSize: '10px', textTransform: 'uppercase', opacity: 0.5, marginBottom: '4px', letterSpacing: '0.05em', userSelect: 'none' }}>
-                                ✥ Drag to reposition
-                              </div>
                               <span>{TRANSLATIONS[lang][service.id + '_impact']}</span>
                             </div>
                           </div>
