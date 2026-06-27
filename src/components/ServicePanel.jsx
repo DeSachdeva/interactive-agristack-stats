@@ -6,10 +6,23 @@ import { Sparkles, Grid, RotateCcw } from 'lucide-react';
 
 const CONFETTI_COLORS = ['#2ecc71', '#e74c3c', '#f1c40f', '#3498db', '#9b59b6', '#e67e22', '#1abc9c'];
 
-export const ServicePanel = ({ 
-  counts, 
-  onServiceClick, 
-  totalClicks, 
+const DEFAULT_BUBBLE_POSITIONS = {
+  fertiliser_access: { x: -93, y: -160 },
+  crop_insurance: { x: 30, y: -122 },
+  msp_procurement: { x: 240, y: 10 },
+  market_price_information: { x: 210, y: 150 },
+  farm_advisory: { x: 110, y: 220 },
+  disaster_relief_support: { x: 0, y: 220 },
+  soil_health_card: { x: -110, y: 220 },
+  credit_access: { x: -240, y: 100 },
+  seeds_distribution: { x: -240, y: -100 },
+  income_support: { x: -180, y: -140 }
+};
+
+export const ServicePanel = ({
+  counts,
+  onServiceClick,
+  totalClicks,
   lang = 'en',
   selectedServices = [],
   activeMessages = {},
@@ -39,9 +52,16 @@ export const ServicePanel = ({
       }));
     };
 
-    const handleMouseUp = () => {
+    const handleMouseUp = (upEvent) => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
+      
+      const dx = upEvent.clientX - startX;
+      const dy = upEvent.clientY - startY;
+      const finalX = (DEFAULT_BUBBLE_POSITIONS[serviceId]?.x || 0) + initialOffsetX + dx;
+      const finalY = (DEFAULT_BUBBLE_POSITIONS[serviceId]?.y || 0) + initialOffsetY + dy;
+      
+      console.log(`%c DRAGGED POSITION FOR ${serviceId}: { x: ${finalX}, y: ${finalY} }`, "color: #27ae60; font-weight: bold; font-size: 12px;");
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -61,16 +81,16 @@ export const ServicePanel = ({
           <span className="badge">{t.choosePlaceDiscover}</span>
         </div>
         <h2 className="panel-subtitle">{t.subtitle}</h2>
-        
+
         <div className="layout-toggle">
-          <button 
+          <button
             className={`toggle-btn ${layoutMode === 'circular' ? 'active' : ''}`}
             onClick={() => setLayoutMode('circular')}
             title="Circular Layout"
           >
             <RotateCcw size={16} /> {lang === 'en' ? 'Radial Dial' : 'रेडियल डायल'}
           </button>
-          <button 
+          <button
             className={`toggle-btn ${layoutMode === 'grid' ? 'active' : ''}`}
             onClick={() => setLayoutMode('grid')}
             title="Grid Layout"
@@ -92,7 +112,7 @@ export const ServicePanel = ({
                 const angleDeg = (index * (360 / activeServices.length)) - 90; // dynamic degree step
                 const radius = 310;
                 const angleRad = (angleDeg * Math.PI) / 180;
-                
+
                 const x = Math.round(radius * Math.cos(angleRad));
                 const y = Math.round(radius * Math.sin(angleRad));
 
@@ -111,9 +131,9 @@ export const ServicePanel = ({
                     x2={endX}
                     y2={endY}
                     className={`connecting-line ${isHovered ? 'line-hovered' : ''}`}
-                    style={{ 
+                    style={{
                       stroke: isHovered ? service.color : 'rgba(39, 174, 96, 0.25)',
-                      '--service-color': service.color 
+                      '--service-color': service.color
                     }}
                   />
                 );
@@ -125,9 +145,9 @@ export const ServicePanel = ({
               <div className="hub-inner">
                 <div className="farmer-avatar">
                   {/* Image cutout loading custom farmers illustration, fallback to custom multi-farmer SVG */}
-                  <img 
-                    src="/images/farmers-group.png" 
-                    alt="Indian Farmers Group" 
+                  <img
+                    src="/images/farmers-group.png"
+                    alt="Indian Farmers Group"
                     className="farmer-avatar-img"
                     onError={(e) => {
                       e.target.style.display = 'none';
@@ -137,8 +157,8 @@ export const ServicePanel = ({
                   />
                   {/* Overlapping Multi-Farmer SVG Vector Fallback */}
                   <svg viewBox="0 0 64 64" width="64" height="64" className="farmer-cutout" style={{ display: 'none' }}>
-                    <circle cx="32" cy="32" r="30" fill="rgba(39, 174, 96, 0.05)" stroke="rgba(39, 174, 96, 0.2)" strokeWidth="1"/>
-                    
+                    <circle cx="32" cy="32" r="30" fill="rgba(39, 174, 96, 0.05)" stroke="rgba(39, 174, 96, 0.2)" strokeWidth="1" />
+
                     {/* Left Farmer (Smaller, Back) */}
                     <g transform="translate(-10, 4) scale(0.82)">
                       <path d="M16 26 C 16 12, 48 12, 48 26 C 44 20, 20 20, 16 26 Z" fill="#d35400" />
@@ -184,13 +204,13 @@ export const ServicePanel = ({
               const angleDeg = (index * (360 / activeServices.length)) - 90; // dynamic degree step
               const radius = 310;
               const angleRad = (angleDeg * Math.PI) / 180;
-              
+
               const x = Math.round(radius * Math.cos(angleRad));
               const y = Math.round(radius * Math.sin(angleRad));
               const isSelected = selectedServices.includes(service.id);
 
               return (
-                <div 
+                <div
                   key={service.id}
                   className={`dial-item-wrapper ${isSelected ? 'active-wrapper' : ''}`}
                   style={{
@@ -208,7 +228,7 @@ export const ServicePanel = ({
                     }}
                   >
                     <div className="icon-box">
-                      <img 
+                      <img
                         src={`/images/schemes/${service.id}.png`}
                         alt={service.title}
                         className="scheme-logo-img"
@@ -237,11 +257,9 @@ export const ServicePanel = ({
                   {isSelected && (
                     (() => {
                       const offset = draggedOffsets[service.id] || { x: 0, y: 0 };
-                      const bubbleDistance = 220; // push far outwards to clear all nodes by default
-                      const baseBubbleX = Math.round(bubbleDistance * Math.cos(angleRad));
-                      const baseBubbleY = Math.round(bubbleDistance * Math.sin(angleRad));
-                      const bubbleX = baseBubbleX + offset.x;
-                      const bubbleY = baseBubbleY + offset.y;
+                      const baseBubble = DEFAULT_BUBBLE_POSITIONS[service.id] || { x: 0, y: -200 };
+                      const bubbleX = baseBubble.x + offset.x;
+                      const bubbleY = baseBubble.y + offset.y;
                       return (
                         <>
                           {/* Leader line connecting button to bubble */}
@@ -303,9 +321,9 @@ export const ServicePanel = ({
                   {isSelected && (
                     <div className="local-confetti-burst">
                       {Array.from({ length: 16 }).map((_, i) => (
-                        <div 
-                          key={i} 
-                          className="burst-particle" 
+                        <div
+                          key={i}
+                          className="burst-particle"
                           style={{
                             '--angle': `${i * 22.5}deg`,
                             '--delay': `${Math.random() * 0.12}s`,
@@ -367,8 +385,8 @@ export const ServicePanel = ({
         <div className="grid-wrapper animate-fade-in">
           <div className="services-grid">
             {SERVICES.map((service) => (
-              <div 
-                key={service.id} 
+              <div
+                key={service.id}
                 className={`grid-card ${service.active ? 'active' : 'disabled'}`}
                 style={{ '--theme-color': service.color }}
                 onClick={() => service.active && onServiceClick(service.id)}

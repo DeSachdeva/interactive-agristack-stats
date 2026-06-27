@@ -10,7 +10,7 @@ const CONFETTI_COLORS = ['#2ecc71', '#e74c3c', '#f1c40f', '#3498db', '#9b59b6', 
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('panel'); // 'panel' | 'stats'
-  
+
   // Theme state
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('agristack_theme') || 'light';
@@ -134,29 +134,29 @@ export default function App() {
         <div className="nav-container">
           <div className="brand-header">
             <div className="logo-group">
-              <img 
-                src="/images/agristack-logo.png" 
-                alt="AgriStack Logo" 
-                className="logo-main" 
+              <img
+                src="/images/agristack-logo.png"
+                alt="AgriStack Logo"
+                className="logo-main"
               />
               <div className="logo-divider"></div>
-              <img 
-                src="/images/moafw-logo.png" 
-                alt="Ministry of Agriculture Logo" 
-                className="logo-sub" 
+              <img
+                src="/images/moafw-logo.png"
+                alt="Ministry of Agriculture Logo"
+                className="logo-sub"
               />
             </div>
           </div>
-          
+
           <div className="nav-controls">
-            <button 
+            <button
               className={`nav-link ${activeTab === 'panel' ? 'active' : ''}`}
               onClick={() => setActiveTab('panel')}
             >
               <LayoutDashboard size={18} />
               <span>{t.servicesPanel}</span>
             </button>
-            <button 
+            <button
               className={`nav-link ${activeTab === 'stats' ? 'active' : ''}`}
               onClick={() => setActiveTab('stats')}
             >
@@ -168,7 +168,7 @@ export default function App() {
             </button>
 
             {/* Language Switcher Button */}
-            <button 
+            <button
               className="lang-toggle-btn"
               onClick={toggleLang}
               title={lang === 'en' ? 'हिन्दी में बदलें' : 'Switch to English'}
@@ -178,7 +178,7 @@ export default function App() {
             </button>
 
             {/* Theme Toggle Button */}
-            <button 
+            <button
               className="theme-toggle-btn"
               onClick={toggleTheme}
               title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
@@ -200,7 +200,7 @@ export default function App() {
           </div>
 
           {activeTab === 'panel' ? (
-            <ServicePanel 
+            <ServicePanel
               counts={counts}
               onServiceClick={handleServiceClick}
               totalClicks={totalClicks}
@@ -210,7 +210,7 @@ export default function App() {
               onNextFarmer={handleNextFarmer}
             />
           ) : (
-            <StatsView 
+            <StatsView
               counts={counts}
               onReset={handleReset}
               totalClicks={totalClicks}
@@ -229,7 +229,7 @@ export default function App() {
 
       {/* Confetti Ribbon Particles Overlay */}
       {confettiParticles.map(p => (
-        <div 
+        <div
           key={p.id}
           className={`confetti-particle shape-${p.shape}`}
           style={{
@@ -242,6 +242,12 @@ export default function App() {
           }}
         />
       ))}
+
+      {/* Persistent Environment Status Watermark Badge */}
+      <div className="vercel-env-badge">
+        <span className="pulse-dot"></span>
+        <span className="env-label">DEPLOYED ON VERCEL: DEVANSH-SACHDEVA</span>
+      </div>
 
     </div>
   );

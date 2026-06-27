@@ -5,13 +5,17 @@
   --primary: #27ae60;
   --primary-dark: #1e8449;
   --primary-glow: rgba(39, 174, 96, 0.2);
-  --bg-app: rgba(255, 255, 255, 0.88); /* High contrast light background overlay */
+  --bg-app: rgba(255, 255, 255, 0.88);
+  /* High contrast light background overlay */
   --bg-card: rgba(255, 255, 255, 0.96);
   --bg-card-hover: #ffffff;
-  --border-color: rgba(0, 0, 0, 0.15); /* More visible borders */
+  --border-color: rgba(0, 0, 0, 0.15);
+  /* More visible borders */
   --border-active: rgba(39, 174, 96, 0.6);
-  --text-primary: #0f172a; /* Deep slate-black for highest contrast */
-  --text-secondary: #334155; /* Darker secondary text */
+  --text-primary: #0f172a;
+  /* Deep slate-black for highest contrast */
+  --text-secondary: #334155;
+  /* Darker secondary text */
   --text-muted: #475569;
   --danger: #e74c3c;
   --danger-hover: #c0392b;
@@ -24,7 +28,8 @@
   --primary: #2ecc71;
   --primary-dark: #27ae60;
   --primary-glow: rgba(46, 204, 113, 0.4);
-  --bg-app: rgba(13, 15, 18, 0.9); /* Overlay to keep bg image dark and readable */
+  --bg-app: rgba(13, 15, 18, 0.9);
+  /* Overlay to keep bg image dark and readable */
   --bg-card: rgba(26, 32, 44, 0.65);
   --bg-card-hover: rgba(35, 43, 59, 0.85);
   --border-color: rgba(255, 255, 255, 0.08);
@@ -63,7 +68,8 @@
 }
 
 .theme-dark.app-shell {
-  background-color: #0d0f12; /* Keep original dark body color fallback */
+  background-color: #0d0f12;
+  /* Keep original dark body color fallback */
 }
 
 .bg-grid {
@@ -72,7 +78,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(39, 174, 96, 0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(39, 174, 96, 0.02) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -136,7 +142,8 @@
 }
 
 .logo-sub {
-  height: 64px; /* Big visibility size for Ministry logo */
+  height: 64px;
+  /* Big visibility size for Ministry logo */
   object-fit: contain;
 }
 
@@ -156,7 +163,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-weight: 700; /* Bold link */
+  font-weight: 700;
+  /* Bold link */
   font-size: 14px;
   transition: var(--transition);
 }
@@ -317,6 +325,7 @@
   .main-heading {
     font-size: 1.8rem;
   }
+
   .br-desktop {
     display: none;
   }
@@ -422,7 +431,7 @@
   position: relative;
   width: 800px;
   height: 800px;
-  margin: 150px auto 40px auto;
+  margin: 220px auto 40px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -433,6 +442,7 @@
     transform: scale(0.55);
     margin: -100px auto;
   }
+
   .circular-wrapper {
     min-height: 500px;
   }
@@ -443,6 +453,7 @@
     transform: scale(0.4);
     margin: -160px auto;
   }
+
   .circular-wrapper {
     min-height: 400px;
   }
@@ -461,7 +472,8 @@
 
 /* EDITS: Dotted lines speed increased, glows from center to circle */
 .connecting-line {
-  stroke-dasharray: 20, 40; /* Multiple pulses in a streaming queue */
+  stroke-dasharray: 20, 40;
+  /* Multiple pulses in a streaming queue */
   stroke-width: 3.5px;
   stroke-dashoffset: 120;
   animation: lightPulse 1.2s linear infinite;
@@ -477,13 +489,15 @@
 
 @keyframes lightPulse {
   to {
-    stroke-dashoffset: 0; /* Flows outwards from center to node */
+    stroke-dashoffset: 0;
+    /* Flows outwards from center to node */
   }
 }
 
 .connecting-line.line-hovered {
   stroke-width: 6px;
-  stroke-dasharray: 0; /* Becomes solid on hover */
+  stroke-dasharray: 0;
+  /* Becomes solid on hover */
   animation: none;
   filter: drop-shadow(0 0 10px var(--service-color));
 }
@@ -501,9 +515,9 @@
 .ring-1 {
   width: 620px;
   height: 620px;
-  border: 2.5px dashed rgba(39, 174, 96, 0.35); 
+  border: 2.5px dashed rgba(39, 174, 96, 0.35);
   border-radius: 50%;
-  animation: none; 
+  animation: none;
 }
 
 .theme-dark .ring-1 {
@@ -525,19 +539,30 @@
 }
 
 @keyframes rotateClockwise {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes rotateCounterClockwise {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 /* Central Hub Styles */
 .central-hub {
   position: relative;
-  width: 280px; /* Marginally wider to support plural portrait and stats */
+  width: 280px;
+  /* Marginally wider to support plural portrait and stats */
   height: 280px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.98) 0%, rgba(240, 243, 246, 0.98) 100%);
   border: 2.5px solid rgba(39, 174, 96, 0.5);
@@ -628,7 +653,8 @@
 }
 
 .farmer-title {
-  font-size: 20px; /* Big in size! */
+  font-size: 20px;
+  /* Big in size! */
   font-weight: 850;
   letter-spacing: -0.01em;
   color: var(--text-primary);
@@ -668,17 +694,13 @@
   z-index: 20;
 }
 
-.dial-item-wrapper.active-wrapper {
-  z-index: 150;
-}
-
 /* Ensure dial-item remains a perfect circle at all times (no ovals) */
 .dial-item {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  aspect-ratio: 1 / 1; 
-  flex-shrink: 0;      
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
   background: rgba(255, 255, 255, 0.96);
   border: 2.5px solid;
   cursor: pointer;
@@ -701,7 +723,7 @@
 
 /* Circle size scaled to 1.8x on hover */
 .dial-item.active:hover {
-  transform: scale(1.8); 
+  transform: scale(1.8);
   background: #ffffff;
   box-shadow: 0 0 35px var(--theme-color), 0 12px 30px rgba(0, 0, 0, 0.15);
   z-index: 100;
@@ -743,14 +765,15 @@
 .dial-label-container {
   margin-top: 8px;
   text-align: center;
-  width: 150px; 
+  width: 150px;
   pointer-events: none;
   transition: var(--transition);
 }
 
 .dial-label {
   font-size: 11px;
-  font-weight: 800; /* Bolder text for light theme */
+  font-weight: 800;
+  /* Bolder text for light theme */
   color: var(--text-primary);
   letter-spacing: -0.01em;
   line-height: 1.25;
@@ -765,17 +788,18 @@
 }
 
 /* Label text size scaled to 18px extra bold on hover */
-.dial-item.hovered + .dial-label-container .dial-label,
-.dial-item.active:hover + .dial-label-container .dial-label {
+.dial-item.hovered+.dial-label-container .dial-label,
+.dial-item.active:hover+.dial-label-container .dial-label {
   color: var(--text-primary);
-  font-size: 18px; 
-  font-weight: 850; 
-  transform: translateY(12px); /* Pushed down to clear the huge circle */
+  font-size: 18px;
+  font-weight: 850;
+  transform: translateY(12px);
+  /* Pushed down to clear the huge circle */
   text-shadow: 0 2px 8px rgba(255, 255, 255, 1);
 }
 
-.theme-dark .dial-item.hovered + .dial-label-container .dial-label,
-.theme-dark .dial-item.active:hover + .dial-label-container .dial-label {
+.theme-dark .dial-item.hovered+.dial-label-container .dial-label,
+.theme-dark .dial-item.active:hover+.dial-label-container .dial-label {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
 }
 
@@ -789,7 +813,7 @@
   border: 1.5px solid var(--border-color);
   border-radius: 20px;
   padding: 20px 24px;
-  margin-top: 130px; 
+  margin-top: 200px;
   min-height: 110px;
   box-shadow: var(--card-shadow), inset 0 2px 4px rgba(255, 255, 255, 0.1);
   display: flex;
@@ -1386,6 +1410,7 @@
     transform: translateY(0) rotate(0deg) scale(1.5);
     opacity: 1;
   }
+
   100% {
     transform: translateY(105vh) translateX(var(--drift)) rotate(720deg) scale(0.6);
     opacity: 0;
@@ -1451,10 +1476,12 @@
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
   }
+
   70% {
     transform: scale(1);
     box-shadow: 0 0 0 5px rgba(16, 185, 129, 0);
   }
+
   100% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
@@ -1476,13 +1503,29 @@
 
 /* Base keyframe animations */
 @keyframes heartBeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 .animate-fade-in {
@@ -1502,24 +1545,51 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleUp {
-  from { opacity: 0; transform: scale(0.92); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes popCount {
-  0% { transform: scale(0.6); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0.6);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* selected-glow class */
@@ -1530,10 +1600,13 @@
 }
 
 @keyframes selectedPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1.0);
     box-shadow: 0 0 20px var(--theme-color);
   }
+
   50% {
     transform: scale(1.08);
     box-shadow: 0 0 35px var(--theme-color);
@@ -1548,7 +1621,7 @@
   border: 2px solid var(--service-color);
   border-radius: 12px;
   padding: 12px 16px;
-  width: 240px;
+  width: 230px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   font-size: 13.5px;
   font-weight: 700;
@@ -1556,26 +1629,6 @@
   z-index: 100;
   pointer-events: auto;
   animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.node-message-bubble.dynamic-bubble {
-  position: relative;
-  left: auto;
-  top: auto;
-  right: auto;
-  transform: none;
-  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 .theme-dark .node-message-bubble {
@@ -1625,6 +1678,7 @@
     opacity: 0;
     transform: translateY(-50%) scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: translateY(-50%) scale(1);
@@ -1670,8 +1724,10 @@
 /* Local Party Popper Confetti Burst */
 .local-confetti-burst {
   position: absolute;
-  top: 40px; /* Center of the 80px dial-item button */
-  left: 60px; /* Center of the 120px dial-item-wrapper */
+  top: 40px;
+  /* Center of the 80px dial-item button */
+  left: 60px;
+  /* Center of the 120px dial-item-wrapper */
   width: 0;
   height: 0;
   pointer-events: none;
@@ -1701,9 +1757,27 @@
     transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(1) rotate(0deg);
     opacity: 1;
   }
+
   80% {
     opacity: 1;
   }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(var(--distance)) scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes localBurst {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
   100% {
     transform: translate(-50%, -50%) rotate(var(--angle)) translateY(var(--distance)) scale(0) rotate(360deg);
     opacity: 0;
