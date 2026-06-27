@@ -694,6 +694,10 @@
   z-index: 20;
 }
 
+.dial-item-wrapper:hover {
+  z-index: 100;
+}
+
 /* Ensure dial-item remains a perfect circle at all times (no ovals) */
 .dial-item {
   width: 80px;
@@ -763,7 +767,9 @@
 }
 
 .dial-label-container {
-  margin-top: 8px;
+  position: relative;
+  z-index: 10;
+  margin-top: 12px;
   text-align: center;
   width: 150px;
   pointer-events: none;
@@ -793,7 +799,7 @@
   color: var(--text-primary);
   font-size: 18px;
   font-weight: 850;
-  transform: translateY(12px);
+  transform: translateY(18px);
   /* Pushed down to clear the huge circle */
   text-shadow: 0 2px 8px rgba(255, 255, 255, 1);
 }
